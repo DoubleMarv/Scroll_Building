@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scroll Animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="inc/css/main.css">
+
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div class="fadeover" id="fadeover"></div>
+  <div id="contento">
+    <!-- <button style="position: fixed; z-index: 999;top: 0; right: 25%; background: #33bec3; color: #fff;padding: 0.5rem;" onclick="gotoStart()">Back to start</button> -->
+
+
+      <div class="rightsidestuff">
+        <div class="rightsidebuttons" id="rightsidebuttons">
+          <h3>What floor?</h3>
+          <ul>
+            <li><a onclick="gotoSkeletonAnimation(lifta, shinea, shinelefta, 1700, 'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
+            <li><a onclick="gotoSkeletonAnimation(liftb, shineb, shineleftb, 1700, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
+            <li><a onclick="gotoSkeletonAnimation(liftc, shinec, shineleftc, 1700, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
+          </ul>
+        </div>
+
+
+        <div class="choice_stuff showstuff-sustainability" id="main_intro_text_holder">
+          <div class="choice_text">
+            <div id="choice_texto"></div> 
+
+            <a onclick="gotoSkeletonZone('sustainability')" class="zone_button"></a>
+
+          </div>
+        </div>
+
+      </div>
+
+
+    <section id="mainbuilding" class="mainbuilding">
+
+<div class="clouds">
+<div class="clouda">
+
+</div>
+</div>
+
+      <div class="halfbuilding" id="halfbuilding">
+        <div class="solarpanels">
+          <img src="assets/solarpanels.png" id="solarpanels">
+        </div>
+        <div class="lift">
+          <img src="assets/lift.png" id="lift">
+        </div>
+        <div class="shine">
+          <img src="assets/shine.png" id="shine">
+          <img src="assets/beams.png" id="beams">
+        </div>
+        <img src="assets/building_xray_extra_new.png" class="xraybuilding" id="xraybuilding">
+
+        <img src="assets/building_extra.png" class="maincolourbuilding" id="maincolourbuilding">
+
+
+        <div class="xray_content" id="xray_sustainability">
+          <ul>
+            <li>
+              <div class="node" onclick="getPain(this)">
+
+              </div>
+              <div class="node_text node_high">
+                <img src="assets/pain_balloon.png" class="speechdummy">
+                <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a>
+              </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="node" onclick="getPain(this)">
+
+              </div>
+              <div class="node_text node_med">
+                <img src="assets/pain_balloon.png" class="speechdummy">
+                <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+               <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="node" onclick="getPain(this)">
+
+              </div>
+              <div class="node_text node_low">
+                <img src="assets/pain_balloon.png" class="speechdummy">
+                <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 
+               <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a></p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="xray_content" id="xray_wellness">
+          <ul>
+            <li>
+              <div class="node">
+
+              </div>
+              <div class="node_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+            <li>
+              <div class="node">
+
+              </div>
+              <div class="node_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+
+            <li>
+              <div class="node">
+
+              </div>
+              <div class="node_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="xray_content" id="xray_financial">
+          <ul>
+            <li>
+              <div class="node">
+
+              </div>
+              <div class="node_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+            <li>
+              <div class="node">
+
+              </div>
+              <div class="node_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+
+            <li>
+              <div class="node">
+
+              </div>
+              <div class="node_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+
+      </div>
+    </section>
+
+<div class="between_message">
+  <div class="top_white_wave"></div>
+<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
+<div class="bottom_wave"></div>
+</div>
+
+    <section class="section_2" id="machines">
+      <div class="overcream"></div>
+      <div class="element_holder" id="element_holder">
+        <div class="element element_a">
+
+          <div class="hovertoshowtext_senddata">
+            <div class="node_text showonmachines" onclick="gotoIpad()">
+              <img src="assets/pain_balloon.png" class="speechdummy">
+              <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            </div>
+          </div>
+
+          <div class="canvas_a" id="canvas_a">
+            <svg class="heightsvg" preserveAspectRatio="none">
+              <polyline id="polyline_a" points="0,140 0,70 900,70 900,1400 100,1400"
+              style="fill:transparent;stroke:orange;stroke-width:2" />
+            </svg>
+          </div>
+
+          <img src="assets/machine-chiller.png">
+        </div>
+        <div class="element element_b">
+          <div class="canvas_b" id="canvas_b">
+            <svg class="heightsvg" preserveAspectRatio="none">
+
+              <polyline id="polyline_b" points="0,140 0,60 480,60 480,1390 100,1390"
+              style="fill:transparent;stroke:green;stroke-width:2" />
+            </svg>
+
+          </div>
+
+          <img src="assets/meter.png">
+        </div>
+        <div class="element element_c">
+          <img src="assets/big-panel.png">
+        </div>
+      </div>
+
+
+      <div class="section_3" id="ipad">
+        <div class="ipad_holder" id="ipad_holder">
+          <div class="ipad">
+            <img src="assets/ipad.png">
+
+<div class="leaf_holder">
+<div class="leaf_a">
+  <img src="assets/leaf_a.png">
+</div>
+<div class="leaf_b">
+  <img src="assets/leaf_b.png">
+</div>
+</div>
+
+          </div>
+        </div>
+
+        <div class="tablet_man_left">
+          <img src="assets/tablet_man_left.png" class="talking_head_left">
+          <div class="talking_speech_left" id="talking_speech_left">
+            <img src="assets/talking_head_balloon_left.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          </div>
+                  <div class="talking_speech_left_b" id="talking_speech_left_b">
+                    <img src="assets/talking_head_balloon_left.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          </div>
+        </div>
+
+        <div class="tablet_man_right">
+          <img src="assets/tablet_man_right.png" class="talking_head_right">
+                    <div class="talking_speech_right" id="talking_speech_right">
+                      <img src="assets/talking_head_balloon_right.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          </div>
+
+                              <div class="talking_speech_right_b" id="talking_speech_right_b">
+                                <img src="assets/talking_head_balloon_right.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+    <section class="section_4" id="simplemap">
+
+      <div class="map_holder" id="map_holder" style="background-image: url('assets/simple_map_small.png')">
+      </div>
+
+
+      <div class="overtext simplemap_text" id="simplemap_text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+    </section>
+
+
+    <section class="section_5" id="usp_section">
+
+      <div class="container">
+        <div class="usp_holder">
+          <div class="usp_block usp_block_a" style="background-image: url('assets/usp_a.png')">
+            <div class="text_area_in_block">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore.</p>
+            </div>
+          </div>
+
+          <div class="usp_block usp_block_b" style="background-image: url('assets/usp_b.png')">
+            <div class="text_area_in_block">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
+            </div>
+          </div>
+
+          <div class="usp_block usp_block_c" style="background-image: url('assets/usp_c.png')">
+            <div class="text_area_in_block">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+
+    <section class="section_6" id="testimonial_section">
+
+      <div class="container">
+        <div class="testimonials_holder">
+
+          <div class="person testimonial_person" style="background-image: url('assets/lady_testimonial.png')">
+          
+          </div>
+          <div id="testimonial_bubble" class="testimonial_speech" style="background-image: url('assets/testimonial_speech.png')">
+          <div class="innerspeech">
+<p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <p><strong>Test Author</strong></p>
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </section>
+
+
+
+  <section class="section_7" id="staff_section">
+
+      <div class="container">
+        <div class="staff_holder">
+
+          <div class="staff_person staff_person_a" style="background-image: url('assets/staff_green.png')">
+            <img src="assets/staff_green.png" class="dummio">
+            <div class="staff_details">
+            <img src="assets/big_staff_left_bubble.png" class="dummio">
+            <div class="innertext">
+            <h4>Jim Smith</h4>
+            <p>Operator Extraordinare</p>
+            </div>
+            </div>
+          </div>
+
+                    <div class="staff_person staff_person_b" style="background-image: url('assets/staff_green.png')">
+            <img src="assets/staff_green.png" class="dummio">
+            <div class="staff_details">
+            <img src="assets/big_staff_left_bubble.png" class="dummio">
+            <div class="innertext">
+            <h4>Jim Smith</h4>
+            <p>Operator Extraordinare</p>
+            </div>
+            </div>
+          </div>
+
+                    <div class="staff_person staff_person_c" style="background-image: url('assets/staff_green.png')">
+            <img src="assets/staff_green.png" class="dummio">
+            <div class="staff_details">
+            <img src="assets/big_staff_left_bubble.png" class="dummio">
+            <div class="innertext">
+            <h4>Jim Smith</h4>
+            <p>Operator Extraordinare</p>
+            </div>
+            </div>
+          </div>
+
+                    <div class="staff_person staff_person_d" style="background-image: url('assets/staff_green.png')">
+            <img src="assets/staff_green.png" class="dummio">
+            <div class="staff_details">
+            <img src="assets/big_staff_left_bubble.png" class="dummio">
+            <div class="innertext">
+            <h4>Jim Smith</h4>
+            <p>Operator Extraordinare</p>
+            </div>
+            </div>
+          </div>
+
+                    <div class="staff_person staff_person_e" style="background-image: url('assets/staff_green.png')">
+            <img src="assets/staff_green.png" class="dummio">
+            <div class="staff_details">
+            <img src="assets/big_staff_left_bubble.png" class="dummio">
+            <div class="innertext">
+            <h4>Jim Smith</h4>
+            <p>Operator Extraordinare</p>
+            </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+    </section>
+
+
+
+  <section class="section_8" id="grid_section">
+
+      <div class="container">
+        <div class="grid_zone">
+
+          <div class="grid_box">
+            <div class="innerbox">
+               <img src="../../assets/six_grid_back.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et</p>
+          </div>
+
+                    <div class="grid_box">
+            <div class="innerbox">
+               <img src="../../assets/six_grid_back.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et</p>
+          </div>
+
+                    <div class="grid_box">
+            <div class="innerbox">
+               <img src="../../assets/six_grid_back.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et</p>
+          </div>
+
+                    <div class="grid_box">
+            <div class="innerbox">
+              <img src="../../assets/six_grid_back.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et</p>
+          </div>
+
+                    <div class="grid_box">
+            <div class="innerbox">
+               <img src="../../assets/six_grid_back.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et</p>
+          </div>
+
+                    <div class="grid_box">
+            <div class="innerbox">
+               <img src="../../assets/six_grid_back.png">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et</p>
+          </div>
+
+        </div>
+      </div>
+
+
+    </section>
+    <footer class="opn_footer">
+      <div class="footer_items">
+      <a href="linkedin">Linkedin</a>
+          <a href="linkedin">Youtube</a>
+      </div>
+    </footer>
+
+
+
+
+    <!-- ///////////////////// end contento /////////////////////////////////-->
+    <!-- ///////////////////// end contento /////////////////////////////////-->
+    <!-- ///////////////////// end contento /////////////////////////////////-->
+  </div>
+
+
+  <div class="side_menu">
+<p id="titletest">Test title</p>
+<figure>
+  <img src="assets/colour_logo.png">
+</figure>
+
+    <ul>
+      <li><a href="#0" onclick="gotoSection('a');"><div class="innercircle" id="innercircle_a"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('b');"><div class="innercircle" id="innercircle_b"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('c');"><div class="innercircle" id="innercircle_c"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('d');"><div class="innercircle" id="innercircle_d"></div></a></li>
+    </ul>
+  </div>
+
+
+  <div class="james_zone" id="james_zone">
+
+    <div class="james_circle">
+      <div class="james_head" onclick="togglejamescontent();">
+        <img src="assets/james.png" class="head_sizer">
+      </div>
+      <div class="james_speech">
+        <img src="assets/speech_balloon_large.png" class="speech_sizer">
+        <p id="jamesballoon">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+      </div>
+    </div>
+
+    <div class="james_side" id="james_side">
+      <div class="content">
+        <p id="james_side_text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <script src="inc/js/content.js"></script>
+    <script src="inc/js/main.js"></script>
+
+
+  <script type="text/javascript">
+
+    function ld(){
+      var a = window.innerWidth;
+      var height = window.innerHeight;
+      var line_a_main_width = (a*0.5);
+      var line_a_last_width = (a*0.54);
+      var polyline= document.getElementById('polyline_a'),
+      points = polyline.getAttribute('points');
+      points = '0,140 0,70 '+line_a_main_width+',70 '+line_a_main_width+',1700 '+line_a_last_width+',1700';
+      polyline.setAttribute('points', points );
+    }
+// window.addEventListener("load",ld());
+
+
+
+  </script>
+
+</body>
+</html>
