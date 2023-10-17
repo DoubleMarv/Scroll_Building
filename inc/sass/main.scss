@@ -196,11 +196,11 @@ figure{
     visibility: none;
     position: absolute;
     z-index: 99;
-    top: 33%;
+    top: 50rem;
     transition: all 0.2s ease;
     width: 100%;
     height: 100%;
-
+height: 100vh;
     li{
         list-style-type: none;
         position: absolute;
@@ -223,7 +223,8 @@ figure{
             p{
                 position: absolute;
                 top: 5%;
-                left: 5%;
+                left: 0;
+                width: 100%;
                 max-width: 14rem;
                 padding: 2rem;
                 font-size: calc(.8rem + 0.1vw);
@@ -291,6 +292,7 @@ figure{
     pointer-events: all;
     visibility: visible;
     transition: .2s ease;
+
 }
 
 
@@ -307,20 +309,46 @@ section.mainbuilding{
     width: 50rem;
     position: relative;
 
+    // img.maincolourbuilding{
+    //     width: 100%;
+    //     z-index: 2;
+    //     position: relative;
+    // }
+
+    figure.maincolourbuilding{
+        width: 100%;
+        z-index: 2;
+        position: relative;
+        img.building_layer_top{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100
+        }
+                img.building_layer_middle{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 4
+        }
+
+
     .solarpanels{
         opacity: 1;
         background-size: contain;
         background-position: 0% center;
         background-repeat: no-repeat;
         background-image: url('../../assets/solarpanels.png');   
-        top: -4%;
+        top: -6rem;
         left: 28%;
-        z-index: 0;
+        z-index: 120;
         position: absolute;
         img{
             opacity: 0;
             height:auto;
-            width:60%;
+            width:50%;
         }
     }
 
@@ -332,7 +360,7 @@ section.mainbuilding{
         background-image: url('../../assets/lift.png');   
         top: 6%;
         right: 6%;
-        z-index: 0;
+        z-index: 10;
         position: absolute;
         img{
             opacity: 0;
@@ -348,7 +376,7 @@ section.mainbuilding{
         background-image: url('../../assets/shine.png');   
         top: 6%;
         left: 83%;
-        z-index: 99;
+        z-index: 130;
         position: absolute;
         opacity: 0;
         img#shine{
@@ -377,12 +405,6 @@ section.mainbuilding{
 
     }
 
-
-
-    img.maincolourbuilding{
-        width: 100%;
-        z-index: 2;
-        position: relative;
     }
     img.xraybuilding{
         width: 100%;
@@ -542,6 +564,9 @@ right: 15%;
     z-index: 998;
     opacity: 0;
     pointer-events: none;
+  .choice_text{
+      min-height: 40rem;
+  }
     #choice_texto{
     p{
         color: #052f3f;
@@ -562,6 +587,7 @@ right: 15%;
         background-position: center;
         background-repeat: no-repeat;
         background-image: url('../../assets/round_scroll_text.png'); 
+        display: none;
     }
 
 }

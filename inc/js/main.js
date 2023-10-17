@@ -1,13 +1,13 @@
 var fadeover = document.getElementById('fadeover');
 var hotobject = variable_text.text;
 
-const lifta = 500;
-const liftb = 285;
-const liftc = 500;
+const lifta = 730;
+const liftb = 860;
+const liftc = 700;
 
-const shinea = 120;
-const shineb = 150;
-const shinec = 175;
+const shinea = 180;
+const shineb = 220;
+const shinec = 275;
 
 const shinelefta = 7;
 const shineleftb = 4;
@@ -25,10 +25,13 @@ const main_intro_text_holder = document.getElementById('main_intro_text_holder')
 
 
 
-const xray_sustainability = document.getElementById('xray_sustainability');
+const xray_conto = document.getElementById('xray_conto');
 const xray_wellness = document.getElementById('xray_wellness');
 const xray_financial = document.getElementById('xray_financial');
 
+var xray_node_a = document.getElementById('xray_node_a');
+var xray_node_b = document.getElementById('xray_node_b');
+var xray_node_c = document.getElementById('xray_node_c');
 
 
 function killAllNodeText(){
@@ -128,42 +131,8 @@ function gotoStart(){
 }
 
 
-function clearSkeletonText(){
-    xray_sustainability.classList.remove('showzone');
-}
-
-function showSkeletonStuff_sustainability(){
-    xray_sustainability.classList.add('showzone');
-}
-
-
-function getAllText(takesinwhich){
-    console.log(takesinwhich);
-    var titletest = document.getElementById('titletest');
-    var choice_texto = document.getElementById('choice_texto');
-    titletest.innerHTML = hotobject.maintitle[takesinwhich];
-    choice_texto.innerHTML = hotobject.main_intro_text[takesinwhich];
-
-
-}
-
-//maintravelfunction
-function gotoSkeletonZone(whattoshow){
-    gsap.to(window, {duration: 1.2, scrollTo: 2400});
-    main_intro_text_holder.classList.remove('active_stuff');
-
-
-    if(whattoshow==='sustainability'){
-        setTimeout(function(){ 
-            showSkeletonStuff_sustainability(); 
-        }, 1400);
-    }
-
-}
-
-
 function clearAllPainBubbles(){
-    xray_sustainability.classList.remove('showzone');
+    xray_conto.classList.remove('showzone');
 }
 
 function moveToMachines(){
@@ -171,41 +140,93 @@ function moveToMachines(){
     gsap.to(window, {duration: 2, scrollTo: 7800});
 }
 
-
 function gotoIpad(){
     gsap.to(window, {duration: 1.75, scrollTo: 9000});
 }
 
+ function getAllText(takesinwhich){
+    var choice_texto = document.getElementById('choice_texto');
+    choice_texto.innerHTML = hotobject.main_intro_text[takesinwhich];
+
+    xray_node_a.innerHTML = hotobject.xray_nodes_a[takesinwhich];
+    xray_node_b.innerHTML = hotobject.xray_nodes_b[takesinwhich];
+    xray_node_c.innerHTML = hotobject.xray_nodes_c[takesinwhich];
+}
 
 
+ function getJamesText(takesinwhich){
+var jamestextchanger = document.getElementById('jamesballoon');
+    jamestextchanger.innerHTML = hotobject.jamestextchanger[takesinwhich];
+}
 
-function gotoSkeletonAnimation(whichlift, whichshine, whichshineleft, wheretoscroll, whatroute, targo){
-    getAllText(whatroute);
+
+ function gotoSkeletonAnimation(whichlift, whichshine, whichshineleft, wheretoscroll, whatroute, targo){
+    var buttonname = document.getElementById('zone_button_'+whatroute);
     gsap.to(window, {duration: 2, scrollTo: wheretoscroll});
-    gsap.to(".shine", { opacity: 0, duration: 0.2, stagger: 2});
+    gsap.to(".shine", { opacity: 0, duration: 0.2});
+    gsap.to(".shine", { yPercent: whichshine, xPercent: whichshineleft});
+
     setTimeout(function(){ 
         gsap.to(".lift", { yPercent: whichlift, duration: 1, })
         gsap.to("#beams", {xPercent: 10, duration: 1 });
-        gsap.to(".shine", { yPercent: whichshine, xPercent: whichshineleft, opacity: 0, duration: 0.2, });
-    }, 500);
+        gsap.to(".shine", { opacity: 0, duration: 0.5, });
+    }, 800);
 
     setTimeout(function(){ 
         gsap.to(".shine", {  opacity: 1, duration: 1.5, });
         main_intro_text_holder.classList.add('active_stuff');
         rightsidebuttons.classList.add('hidden_rightside_buttons');
-    }, 700); 
-    targo.classList.add('active');
+    }, 1000); 
+
+    setTimeout(function(){ 
+            getAllText(whatroute);
+                targo.classList.add('active');
+    buttonname.style.display = 'block';
+        }, 1900);
 // gsap.to(window, {duration: 2, scrollTo: 1800});
 }
 
 
+function clearSkeletonText(){
+    xray_conto.classList.remove('showzone');
+}
+
+function showSkeletonStuff(){
+    xray_conto.classList.add('showzone');
+}
+
+
+//maintravelfunction
+function gotoSkeletonZone(whattoshow){
+gsap.to(window, {duration: 1.2, scrollTo: 2400});
+main_intro_text_holder.classList.remove('active_stuff');
+getJamesText(whattoshow);
+
+if(whattoshow==='sustainability'){
+setTimeout(function(){ 
+showSkeletonStuff(); 
+}, 1400);
+}
+
+if(whattoshow==='wellness'){
+setTimeout(function(){ 
+showSkeletonStuff(); 
+}, 1400);
+}
+
+if(whattoshow==='financial'){
+setTimeout(function(){ 
+showSkeletonStuff(); 
+}, 1400);
+}
+
+}
+
+
+
+
 var mainScrollAnimation = function(){
-
-
-
-
     ScrollTrigger.saveStyles(".mobile, .desktop");
-
 /*** Different ScrollTrigger setups for various screen sizes (media queries) ***/
     ScrollTrigger.matchMedia({
 

@@ -34,9 +34,11 @@
 
         <div class="choice_stuff showstuff-sustainability" id="main_intro_text_holder">
           <div class="choice_text">
-            <div id="choice_texto"></div> 
+            <div id="choice_texto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
 
-            <a onclick="gotoSkeletonZone('sustainability')" class="zone_button"></a>
+        <a onclick="gotoSkeletonZone('sustainability')" class="zone_button" id="zone_button_sustainability"></a>
+        <a onclick="gotoSkeletonZone('wellness')" class="zone_button" id="zone_button_wellness"></a>
+        <a onclick="gotoSkeletonZone('financial')" class="zone_button" id="zone_button_financial"></a>
 
           </div>
         </div>
@@ -53,22 +55,30 @@
 </div>
 
       <div class="halfbuilding" id="halfbuilding">
+        <img src="assets/building_xray_extra_new.png" class="xraybuilding" id="xraybuilding">
+
+        <!-- <img src="assets/building_extra.png" class="maincolourbuilding" id="maincolourbuilding"> -->
+
+        <figure class="maincolourbuilding" id="maincolourbuilding">
+        <div class="shine">
+          <img src="assets/shine.png" id="shine">
+          <img src="assets/beams.png" id="beams">
+        </div>
+            <img src="assets/building_cutout.png" class="building_layer_top">
+          
         <div class="solarpanels">
           <img src="assets/solarpanels.png" id="solarpanels">
         </div>
         <div class="lift">
           <img src="assets/lift.png" id="lift">
         </div>
-        <div class="shine">
-          <img src="assets/shine.png" id="shine">
-          <img src="assets/beams.png" id="beams">
-        </div>
-        <img src="assets/building_xray_extra_new.png" class="xraybuilding" id="xraybuilding">
-
-        <img src="assets/building_extra.png" class="maincolourbuilding" id="maincolourbuilding">
+            <img src="assets/building_backwindow.png" class="building_layer_middle">
+        </figure>
 
 
-        <div class="xray_content" id="xray_sustainability">
+
+<!-- ///////////////////// break /////////////////////////////////-->
+        <div class="xray_content" id="xray_conto">
           <ul>
             <li>
               <div class="node" onclick="getPain(this)">
@@ -76,9 +86,8 @@
               </div>
               <div class="node_text node_high">
                 <img src="assets/pain_balloon.png" class="speechdummy">
-                <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a>
+                <p id="xray_node_a">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a>
               </p>
               </div>
             </li>
@@ -89,8 +98,8 @@
               </div>
               <div class="node_text node_med">
                 <img src="assets/pain_balloon.png" class="speechdummy">
-                <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                <p id="xray_node_b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
                <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a></p>
               </div>
             </li>
@@ -101,111 +110,14 @@
               </div>
               <div class="node_text node_low">
                 <img src="assets/pain_balloon.png" class="speechdummy">
-                <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 
+                <p id="xray_node_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
                <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a></p>
               </div>
             </li>
-
           </ul>
         </div>
-
-        <div class="xray_content" id="xray_wellness">
-          <ul>
-            <li>
-              <div class="node">
-
-              </div>
-              <div class="node_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-            </li>
-
-            <li>
-              <div class="node">
-
-              </div>
-              <div class="node_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-            </li>
-
-
-            <li>
-              <div class="node">
-
-              </div>
-              <div class="node_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-        <div class="xray_content" id="xray_financial">
-          <ul>
-            <li>
-              <div class="node">
-
-              </div>
-              <div class="node_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-            </li>
-
-            <li>
-              <div class="node">
-
-              </div>
-              <div class="node_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-            </li>
-
-
-            <li>
-              <div class="node">
-
-              </div>
-              <div class="node_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
+<!-- ///////////////////// break /////////////////////////////////-->
 
       </div>
     </section>
@@ -536,7 +448,6 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
 
   <div class="side_menu">
-<p id="titletest">Test title</p>
 <figure>
   <img src="assets/colour_logo.png">
 </figure>

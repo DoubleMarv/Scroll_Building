@@ -204,10 +204,11 @@ figure {
   visibility: none;
   position: absolute;
   z-index: 99;
-  top: 33%;
+  top: 50rem;
   transition: all 0.2s ease;
   width: 100%;
   height: 100%;
+  height: 100vh;
 }
 .xray_content li {
   list-style-type: none;
@@ -231,7 +232,8 @@ figure {
 .xray_content li div.node_text p {
   position: absolute;
   top: 5%;
-  left: 5%;
+  left: 0;
+  width: 100%;
   max-width: 14rem;
   padding: 2rem;
   font-size: calc(0.8rem + 0.1vw);
@@ -288,54 +290,73 @@ section.mainbuilding .halfbuilding {
   width: 50rem;
   position: relative;
 }
-section.mainbuilding .halfbuilding .solarpanels {
+section.mainbuilding .halfbuilding figure.maincolourbuilding {
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+section.mainbuilding .halfbuilding figure.maincolourbuilding img.building_layer_top {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+section.mainbuilding .halfbuilding figure.maincolourbuilding img.building_layer_middle {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+}
+section.mainbuilding .halfbuilding figure.maincolourbuilding .solarpanels {
   opacity: 1;
   background-size: contain;
   background-position: 0% center;
   background-repeat: no-repeat;
   background-image: url("../../assets/solarpanels.png");
-  top: -4%;
+  top: -6rem;
   left: 28%;
-  z-index: 0;
+  z-index: 120;
   position: absolute;
 }
-section.mainbuilding .halfbuilding .solarpanels img {
+section.mainbuilding .halfbuilding figure.maincolourbuilding .solarpanels img {
   opacity: 0;
   height: auto;
-  width: 60%;
+  width: 50%;
 }
-section.mainbuilding .halfbuilding .lift {
+section.mainbuilding .halfbuilding figure.maincolourbuilding .lift {
   background-size: contain;
   background-position: 10% center;
   background-repeat: no-repeat;
   background-image: url("../../assets/lift.png");
   top: 6%;
   right: 6%;
-  z-index: 0;
+  z-index: 10;
   position: absolute;
 }
-section.mainbuilding .halfbuilding .lift img {
+section.mainbuilding .halfbuilding figure.maincolourbuilding .lift img {
   opacity: 0;
   height: 8rem;
   width: 8rem;
 }
-section.mainbuilding .halfbuilding .shine {
+section.mainbuilding .halfbuilding figure.maincolourbuilding .shine {
   background-size: contain;
   background-position: 10% center;
   background-repeat: no-repeat;
   background-image: url("../../assets/shine.png");
   top: 6%;
   left: 83%;
-  z-index: 99;
+  z-index: 130;
   position: absolute;
   opacity: 0;
 }
-section.mainbuilding .halfbuilding .shine img#shine {
+section.mainbuilding .halfbuilding figure.maincolourbuilding .shine img#shine {
   opacity: 0;
   height: 28rem;
   width: 28rem;
 }
-section.mainbuilding .halfbuilding .shine img#beams {
+section.mainbuilding .halfbuilding figure.maincolourbuilding .shine img#beams {
   width: 8rem;
   position: absolute;
   top: 35%;
@@ -354,11 +375,6 @@ section.mainbuilding .halfbuilding .shine img#beams {
   100% {
     transform: rotate(0deg);
   }
-}
-section.mainbuilding .halfbuilding img.maincolourbuilding {
-  width: 100%;
-  z-index: 2;
-  position: relative;
 }
 section.mainbuilding .halfbuilding img.xraybuilding {
   width: 100%;
@@ -499,6 +515,9 @@ section.mainbuilding .halfbuilding img.xraybuilding {
   opacity: 0;
   pointer-events: none;
 }
+.choice_stuff .choice_text {
+  min-height: 40rem;
+}
 .choice_stuff #choice_texto p {
   color: #052f3f;
   font-weight: 600;
@@ -516,6 +535,7 @@ section.mainbuilding .halfbuilding img.xraybuilding {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("../../assets/round_scroll_text.png");
+  display: none;
 }
 
 .choice_stuff.active_stuff {
