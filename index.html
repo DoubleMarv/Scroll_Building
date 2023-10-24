@@ -25,9 +25,9 @@
         <div class="rightsidebuttons" id="rightsidebuttons">
           <h3>What floor?</h3>
           <ul>
-            <li><a onclick="gotoSkeletonAnimation(lifta, shinea, shinelefta, 1700, 'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
-            <li><a onclick="gotoSkeletonAnimation(liftb, shineb, shineleftb, 1700, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
-            <li><a onclick="gotoSkeletonAnimation(liftc, shinec, shineleftc, 1700, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
+            <li><a class="mainchecko" onclick="gotoSkeletonAnimation(lifta, shinea, shinelefta, 1700, 'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
+            <li><a class="mainchecko" onclick="gotoSkeletonAnimation(liftb, shineb, shineleftb, 1700, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
+            <li><a class="mainchecko" onclick="gotoSkeletonAnimation(liftc, shinec, shineleftc, 1700, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
           </ul>
         </div>
 
@@ -86,9 +86,7 @@
               </div>
               <div class="node_text node_high">
                 <img src="assets/pain_balloon.png" class="speechdummy">
-                <p id="xray_node_a">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a>
-              </p>
+                <div id="xray_node_a" onclick="gotoMachines()">&nbsp;</div>
               </div>
             </li>
 
@@ -98,9 +96,7 @@
               </div>
               <div class="node_text node_med">
                 <img src="assets/pain_balloon.png" class="speechdummy">
-                <p id="xray_node_b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-               <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a></p>
+                <div id="xray_node_b" onclick="gotoMachines()">&nbsp;</div>
               </div>
             </li>
 
@@ -110,9 +106,7 @@
               </div>
               <div class="node_text node_low">
                 <img src="assets/pain_balloon.png" class="speechdummy">
-                <p id="xray_node_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-               <br> <a href="#0" onclick="moveToMachines()">Click to go to machines</a></p>
+               <div id="xray_node_c" onclick="gotoMachines()">&nbsp;</div>
               </div>
             </li>
           </ul>
@@ -149,22 +143,49 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
             </svg>
           </div>
 
-          <img src="assets/machine-chiller.png">
+          <img src="assets/machine-sustainability-1.png" id="image_element_1">
         </div>
+
+
         <div class="element element_b">
+
+          <div class="hovertoshowtext_senddata">
+            <div class="node_text showonmachines" onclick="gotoIpad()">
+              <img src="assets/pain_balloon.png" class="speechdummy">
+              <p>b xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            </div>
+          </div>
+
           <div class="canvas_b" id="canvas_b">
             <svg class="heightsvg" preserveAspectRatio="none">
-
               <polyline id="polyline_b" points="0,140 0,60 480,60 480,1390 100,1390"
               style="fill:transparent;stroke:green;stroke-width:2" />
             </svg>
-
           </div>
 
-          <img src="assets/meter.png">
+          <img src="assets/machine-sustainability-2.png" id="image_element_2">
         </div>
+
+
         <div class="element element_c">
-          <img src="assets/big-panel.png">
+
+          <div class="hovertoshowtext_senddata">
+            <div class="node_text showonmachines" onclick="gotoIpad()">
+              <img src="assets/pain_balloon.png" class="speechdummy">
+              <p>c xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            </div>
+          </div>
+
+          <div class="canvas_c" id="canvas_c">
+            <svg class="heightsvg" preserveAspectRatio="none">
+              <polyline id="polyline_c" points="0,140 0,60 480,60 480,1390 100,1390"
+              style="fill:transparent;stroke:green;stroke-width:2" />
+            </svg>
+          </div>
+
+          <img src="assets/machine-sustainability-3.png" id="image_element_3">
         </div>
       </div>
 
@@ -452,7 +473,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
   <img src="assets/colour_logo.png">
 </figure>
 
-    <ul>
+    <ul id="main_side_menu" class="disabler">
       <li><a href="#0" onclick="gotoSection('a');"><div class="innercircle" id="innercircle_a"></div></a></li>
       <li><a href="#0" onclick="gotoSection('b');"><div class="innercircle" id="innercircle_b"></div></a></li>
       <li><a href="#0" onclick="gotoSection('c');"><div class="innercircle" id="innercircle_c"></div></a></li>

@@ -26,6 +26,23 @@ let variable_text = {
             "wellness" : `<p>xray c It has long been known that air quality and comfort in buildings are critical to keeping occupants happy and productive. CO2, Particulate Matter, temperature, and humidity are crucial </p>`,
             "financial" : `<p>xray c wellnessYour buildings' performance plays a lead role in the strategic health of your business. Low-energy buildings </p>`,
         },
+    },
 
+    "images":{
+                "image_machines_a": {
+            "sustainability": `assets/machine-sustainability-1.png`,
+            "wellness" : `assets/machine-wellness-1.png`,
+            "financial" : `assets/machine-financial-1.png`,
+        },
+        "image_machines_b": {
+            "sustainability": `assets/machine-sustainability-2.png`,
+            "wellness" : `assets/machine-wellness-2.png`,
+            "financial" : `assets/machine-financial-2.png`,
+        },
+        "image_machines_c": {
+            "sustainability": `assets/machine-sustainability-3.png`,
+            "wellness" : `assets/machine-wellness-3.png`,
+            "financial" : `assets/machine-financial-3.png`,
+        },
     }
 }

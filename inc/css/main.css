@@ -247,14 +247,22 @@ figure {
   background-image: url("../../assets/pain_balloon_high.png");
 }
 .xray_content li div.node_text.node_high p {
-  top: 15%;
+  top: 22%;
+  font-size: calc(0.8rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
 .xray_content li div.node_text.node_med {
   position: absolute;
   bottom: 100%;
 }
 .xray_content li div.node_text.node_med p {
-  top: -5%;
+  top: 0%;
+  font-size: calc(0.8rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
 .xray_content li div.node_text.node_low {
   position: absolute;
@@ -262,6 +270,10 @@ figure {
 }
 .xray_content li div.node_text.node_low p {
   top: -5%;
+  font-size: calc(0.8rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
 .xray_content li:nth-child(1) {
   top: 5%;
@@ -553,6 +565,7 @@ div.between_message {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 100%;
 }
 div.between_message .top_white_wave {
   background-size: cover;
@@ -726,7 +739,10 @@ section#machines div#ipad .tablet_man_left .talking_speech_left_b p {
   top: 30%;
   max-width: 70%;
   margin-left: 15%;
-  font-size: calc(0.8rem + 0.1vw);
+  font-size: calc(1rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
 section#machines div#ipad .tablet_man_left .talking_head_left {
   width: 80%;
@@ -763,7 +779,10 @@ section#machines div#ipad .tablet_man_right .talking_speech_right_b p {
   top: 30%;
   max-width: 70%;
   margin-left: 15%;
-  font-size: calc(0.8rem + 0.1vw);
+  font-size: calc(1rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
 section#machines div#ipad .tablet_man_right .talking_head_right {
   width: 80%;
@@ -804,6 +823,25 @@ section#machines .canvas_b svg, section#machines .canvas_b img {
   margin-top: -5rem;
 }
 section#machines .canvas_b svg #polyline_b, section#machines .canvas_b img #polyline_b {
+  stroke-dasharray: 2800;
+  stroke-dashoffset: 2800;
+  transition: stroke-dashoffset 0.3s linear;
+}
+section#machines .canvas_c {
+  position: absolute;
+  width: 100%;
+  max-width: 50rem;
+}
+section#machines .canvas_c svg, section#machines .canvas_c img {
+  min-height: unset !important;
+  max-height: unset !important;
+  max-width: unset !important;
+  width: 35vw !important;
+  height: 150vh !important;
+  margin-left: 8vw;
+  margin-top: -5rem;
+}
+section#machines .canvas_c svg #polyline_c, section#machines .canvas_c img #polyline_c {
   stroke-dasharray: 2800;
   stroke-dashoffset: 2800;
   transition: stroke-dashoffset 0.3s linear;
@@ -914,7 +952,7 @@ section.section_6 .container .testimonials_holder .person.testimonial_person {
 }
 section.section_6 .container .testimonials_holder .testimonial_speech {
   width: 60%;
-  background-size: 80%;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
@@ -1119,4 +1157,10 @@ footer.opn_footer .footer_items a {
 .side_menu ul li a .innercircle.activio {
   box-shadow: 0px 0px 1px 2px #052f3f;
   border: 3px solid #fcfcfa;
+}
+.side_menu ul.disabler {
+  pointer-events: none;
+}
+.side_menu ul.disabler li {
+  opacity: 0.5;
 }

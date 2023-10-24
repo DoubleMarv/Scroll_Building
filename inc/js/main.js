@@ -1,13 +1,14 @@
 var fadeover = document.getElementById('fadeover');
 var hotobject = variable_text.text;
+var hotobjectimages = variable_text.images;
 
 const lifta = 730;
 const liftb = 860;
-const liftc = 700;
+const liftc = 1150;
 
 const shinea = 180;
 const shineb = 220;
-const shinec = 275;
+const shinec = 305;
 
 const shinelefta = 7;
 const shineleftb = 4;
@@ -23,8 +24,6 @@ const jamesballoon = document.getElementById('jamesballoon');
 const rightsidebuttons = document.getElementById('rightsidebuttons');
 const main_intro_text_holder = document.getElementById('main_intro_text_holder');
 
-
-
 const xray_conto = document.getElementById('xray_conto');
 const xray_wellness = document.getElementById('xray_wellness');
 const xray_financial = document.getElementById('xray_financial');
@@ -33,6 +32,11 @@ var xray_node_a = document.getElementById('xray_node_a');
 var xray_node_b = document.getElementById('xray_node_b');
 var xray_node_c = document.getElementById('xray_node_c');
 
+var image_element_1 = document.getElementById('image_element_1');
+var image_element_2 = document.getElementById('image_element_2');
+var image_element_3 = document.getElementById('image_element_3');
+
+var main_side_menu = document.getElementById('main_side_menu');
 
 function killAllNodeText(){
     var allNodeText = document.getElementsByClassName('node_text');
@@ -98,12 +102,21 @@ function gotoSection(whereto){
 
     if(whereto==='a'){
         clearSkeletonText();
+        clearAllPainBubbles();
+            hideAllZoneButtons();
+    hideRightSideButtonsCheck();
+    rightsidebuttons.classList.remove('hidden_rightside_buttons');
+    main_intro_text_holder.classList.remove('active_stuff');
+    gsap.to(".rightsidebuttons", {opacity:1})
+    gsap.to(".shine", { opacity: 0, duration: 0.2});
         gsap.to(window, {duration: 1.5, scrollTo: 0});
     }
 
 
     if(whereto==='b'){
         clearSkeletonText();
+        hideRightSideButtonsCheck();
+        clearAllPainBubbles();
         gsap.to(window, {duration: 1.2, scrollTo: 2500});
         setTimeout(function(){ 
             showSkeletonStuff_sustainability(); 
@@ -135,37 +148,66 @@ function clearAllPainBubbles(){
     xray_conto.classList.remove('showzone');
 }
 
-function moveToMachines(){
-    xray_sustainability.classList.remove('showzone');
-    gsap.to(window, {duration: 2, scrollTo: 7800});
+function gotoMachines(){
+    xray_conto.classList.remove('showzone');
+    gsap.to(window, {duration: 2, scrollTo: 7700});
 }
 
 function gotoIpad(){
     gsap.to(window, {duration: 1.75, scrollTo: 9000});
 }
 
- function getAllText(takesinwhich){
+function getAllText(takesinwhich){
     var choice_texto = document.getElementById('choice_texto');
     choice_texto.innerHTML = hotobject.main_intro_text[takesinwhich];
 
     xray_node_a.innerHTML = hotobject.xray_nodes_a[takesinwhich];
     xray_node_b.innerHTML = hotobject.xray_nodes_b[takesinwhich];
     xray_node_c.innerHTML = hotobject.xray_nodes_c[takesinwhich];
+    console.log(hotobjectimages.image_machines_a[takesinwhich]);
+    image_element_1.src = hotobjectimages.image_machines_a[takesinwhich];
+    image_element_2.src = hotobjectimages.image_machines_b[takesinwhich];
+    image_element_3.src = hotobjectimages.image_machines_c[takesinwhich];
 }
 
 
- function getJamesText(takesinwhich){
-var jamestextchanger = document.getElementById('jamesballoon');
+function getJamesText(takesinwhich){
+    var jamestextchanger = document.getElementById('jamesballoon');
     jamestextchanger.innerHTML = hotobject.jamestextchanger[takesinwhich];
 }
 
+function hideAllZoneButtons(){
+    var allZoneButton = document.getElementsByClassName('zone_button');
+    for (var i = 0; i < allZoneButton.length; i++) {
+        allZoneButton[i].style.display = 'none';
+    }
+}
 
- function gotoSkeletonAnimation(whichlift, whichshine, whichshineleft, wheretoscroll, whatroute, targo){
+function hideRightSideButtonsCheck(){
+    var rightSideCHeckBoxes = document.getElementsByClassName('mainchecko');
+    for (var i = 0; i < rightSideCHeckBoxes.length; i++) {
+        rightSideCHeckBoxes[i].classList.remove('active');
+    }
+}
+
+
+function resetStartStuff(){
+    hideAllZoneButtons();
+    hideRightSideButtonsCheck();
+    rightsidebuttons.classList.remove('hidden_rightside_buttons');
+    main_intro_text_holder.classList.remove('active_stuff');
+    gsap.to(".shine", { opacity: 0, duration: 0.2});
+    window.scrollTo(0, 0);
+}
+
+
+function gotoSkeletonAnimation(whichlift, whichshine, whichshineleft, wheretoscroll, whatroute, targo){
     var buttonname = document.getElementById('zone_button_'+whatroute);
     gsap.to(window, {duration: 2, scrollTo: wheretoscroll});
     gsap.to(".shine", { opacity: 0, duration: 0.2});
     gsap.to(".shine", { yPercent: whichshine, xPercent: whichshineleft});
-
+    targo.classList.add('active');
+    main_side_menu.classList.remove('disabler');
     setTimeout(function(){ 
         gsap.to(".lift", { yPercent: whichlift, duration: 1, })
         gsap.to("#beams", {xPercent: 10, duration: 1 });
@@ -179,13 +221,15 @@ var jamestextchanger = document.getElementById('jamesballoon');
     }, 1000); 
 
     setTimeout(function(){ 
-            getAllText(whatroute);
-                targo.classList.add('active');
-    buttonname.style.display = 'block';
-        }, 1900);
+        getAllText(whatroute);
+        buttonname.style.display = 'block';
+    }, 1900);
 // gsap.to(window, {duration: 2, scrollTo: 1800});
 }
 
+function alerter(){
+    alert('I happened');
+}
 
 function clearSkeletonText(){
     xray_conto.classList.remove('showzone');
@@ -198,27 +242,27 @@ function showSkeletonStuff(){
 
 //maintravelfunction
 function gotoSkeletonZone(whattoshow){
-gsap.to(window, {duration: 1.2, scrollTo: 2400});
-main_intro_text_holder.classList.remove('active_stuff');
-getJamesText(whattoshow);
+    gsap.to(window, {duration: 1.2, scrollTo: 2400});
+    main_intro_text_holder.classList.remove('active_stuff');
+    getJamesText(whattoshow);
 
-if(whattoshow==='sustainability'){
-setTimeout(function(){ 
-showSkeletonStuff(); 
-}, 1400);
-}
+    if(whattoshow==='sustainability'){
+        setTimeout(function(){ 
+            showSkeletonStuff(); 
+        }, 1400);
+    }
 
-if(whattoshow==='wellness'){
-setTimeout(function(){ 
-showSkeletonStuff(); 
-}, 1400);
-}
+    if(whattoshow==='wellness'){
+        setTimeout(function(){ 
+            showSkeletonStuff(); 
+        }, 1400);
+    }
 
-if(whattoshow==='financial'){
-setTimeout(function(){ 
-showSkeletonStuff(); 
-}, 1400);
-}
+    if(whattoshow==='financial'){
+        setTimeout(function(){ 
+            showSkeletonStuff(); 
+        }, 1400);
+    }
 
 }
 
@@ -248,7 +292,7 @@ var mainScrollAnimation = function(){
                     pin: "#mainbuilding",
                     pinType: "fixed",
                     scrub: 0.5,
-                    //markers: true,
+//markers: true,
                 }
             });
 
@@ -263,7 +307,8 @@ var mainScrollAnimation = function(){
                     scrub: 0.5,
                     delay: 0.25,
                     onEnterBack: leaveJamesa,
-                    //markers: true,
+onEnterBack:  () => { leaveJamesa();gotoSection('a');},
+//markers: true,
 // onLeave: finished,
                 }
             });
@@ -279,9 +324,10 @@ var mainScrollAnimation = function(){
                     end: 2200,
                     scrub: true,
                     delay: 0.25,
-                    //markers: true,
+//markers: true,
                     id:'marker 1',
-                    onEnter: callJamesa,
+                    onEnter:  () => { callJamesa(); hideRightSideButtonsCheck(); },
+                    onEnterBack:  () => { callJamesa(); hideRightSideButtonsCheck(); },
                 }
             });
             overbuilding_start
@@ -303,7 +349,7 @@ var mainScrollAnimation = function(){
                     pin: "#machines",
                     scrub: true,
 // delay: 0.75,
-                    //markers: true,
+//markers: true,
                     id:'machines',
                     onEnter: leaveJamesa,
                 }
@@ -311,15 +357,9 @@ var mainScrollAnimation = function(){
             machines
             .to("#xraybuilding", {opacity:0, duration: 1.5})
             .to('#contento', { backgroundColor: '#052f3f', duration: 1.8})
-// .to(".element_a", { yPercent: 0, }, 0.2)
             .to(".showonmachines", {opacity: 1}, 0.25)
-// .to(".element_b", { yPercent: -10, }, 0.25)
-// .to(".element_c", { yPercent: 0, }, 0.3)
             .to('.overcream',{autoAlpha: 1, duration: 1})
-// .to('#ipad', { backgroundColor: '#fcfcfa'})
-// .to('#machines', { backgroundColor: '#fcfcfa'})
             .to('.ipad', {scale: 0.95})
-
 
 
 
@@ -332,7 +372,7 @@ var mainScrollAnimation = function(){
                     pin: "#machines",
                     scrub: true,
                     delay: 0.75,
-                    //markers: true,
+//markers: true,
                     id:'machines_2',
                     onEnter: leaveJamesa,
                     onEnterBack: leaveJamesa,
@@ -342,6 +382,7 @@ var mainScrollAnimation = function(){
 // .to('#ipad', { backgroundColor: '#fcfcfa', duration: 1.8})
             .to('#polyline_a', { strokeDashoffset: 0})
             .to('#polyline_b', { strokeDashoffset: 0})
+            .to('#polyline_c', { strokeDashoffset: 0})
             .fromTo('.leaf_a', {autoAlpha: 0, xPercent: 10},{autoAlpha: 1, xPercent: -10})
             .fromTo('.leaf_b', {autoAlpha: 0, xPercent: 15},{autoAlpha: 1, xPercent: -15})
             .fromTo('.leaf_a', {autoAlpha: 1, xPercent: 10},{autoAlpha: 0, xPercent: -10})
@@ -373,7 +414,7 @@ var mainScrollAnimation = function(){
                     pin: "#simplemap",
                     scrub: true,
                     delay: 0.25,
-                    //markers: true,
+//markers: true,
                     id:'simplemap',
                     onEnter: callJamesMap,
                     onEnterBack: callJamesMap,
@@ -396,7 +437,7 @@ var mainScrollAnimation = function(){
                     end: "+=100%",
                     pin: "#usp_section",
                     scrub: true,
-                    //markers: true,
+//markers: true,
                     id:'usp_section',
                     onEnter: leaveJamesa,
                     onEnterBack: leaveJamesa,
@@ -418,7 +459,7 @@ var mainScrollAnimation = function(){
                     end: "+=100%",
                     pin: "#testimonial_section",
                     scrub: true,
-                    //markers: true,
+//markers: true,
                     id:'testimonial_section',
 
                 }
@@ -441,7 +482,7 @@ var mainScrollAnimation = function(){
                     pin: "#staff_section",
                     delay: 0.15,
                     scrub: true,
-                    //markers: true,
+//markers: true,
                     id:'staff_section',
                     onEnter: leaveJamesa,
                     onEnterBack: leaveJamesa,
@@ -515,3 +556,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1000);
 
 });
+
+
+window.onbeforeunload = function () {
+    window.scrollTo(0,0);
+}; 
