@@ -3,31 +3,74 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Scroll Animation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPN Scrollzone</title>
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<script>
+  var viewporter = document.getElementById("viewport");
+  var deviceclass = 'devico';
+  var sections = document.querySelectorAll('.secto');
+
+
+if (window.innerWidth > 1366) {
+   // alert(window.innerWidth);
+   deviceclass = 'device--normal';
+   viewporter.setAttribute("content", "initial-scale=0.85, maximum-scale=1.0, user-scalable=0");
+   document.addEventListener("DOMContentLoaded", function(event) {
+document.body.classList.add(deviceclass);
+});
+} else if ((window.innerWidth > 991) && (window.innerWidth < 1366)) {
+
+   deviceclass = 'device--mid';
+   viewporter.setAttribute("content", "initial-scale=0.8, maximum-scale=1.0, user-scalable=0");
+   document.addEventListener("DOMContentLoaded", function(event) {
+document.body.classList.add(deviceclass);
+});
+} else if (window.innerWidth < 991) {
+
+  deviceclass = 'device--smallmob';
+   viewporter.setAttribute("content",
+      "initial-scale=0.45, maximum-scale=1.0, user-scalable=0");
+   document.addEventListener("DOMContentLoaded", function(event) {
+document.body.classList.add(deviceclass);
+});
+} else {
+
+   deviceclass = 'device--normal noregdevice';
+   viewporter.setAttribute("content", "initial-scale=0.65, maximum-scale=1.0, user-scalable=0");
+   document.addEventListener("DOMContentLoaded", function(event) {
+document.body.classList.add(deviceclass);
+});
+}
+
+
+
+
+</script>
+<!-- <meta name="viewport" content="width=1003, initial-scale=1, maximum-scale=1"> -->
   <link rel="stylesheet" href="inc/css/main.css">
 
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script> 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
+  <script src="inc/js/responsive_heights.js"></script>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
 <body>
   <div class="fadeover" id="fadeover"></div>
+  <div class="portraitlocker"></div>
   <div id="contento">
     <!-- <button style="position: fixed; z-index: 999;top: 0; right: 25%; background: #33bec3; color: #fff;padding: 0.5rem;" onclick="gotoStart()">Back to start</button> -->
-
 
       <div class="rightsidestuff">
         <div class="rightsidebuttons" id="rightsidebuttons">
           <h3>What floor?</h3>
           <ul>
-            <li><a class="mainchecko" onclick="gotoSkeletonAnimation(lifta, shinea, shinelefta, 1700, 'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
-            <li><a class="mainchecko" onclick="gotoSkeletonAnimation(liftb, shineb, shineleftb, 1700, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
-            <li><a class="mainchecko" onclick="gotoSkeletonAnimation(liftc, shinec, shineleftc, 1700, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
+            <li><a class="mainchecko" href="#0"  onclick="gotoSkeletonAnimation(lifta, shinea, shinelefta,'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
+            <li><a class="mainchecko" href="#0"  onclick="gotoSkeletonAnimation(liftb, shineb, shineleftb, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
+            <li><a class="mainchecko" href="#0"  onclick="gotoSkeletonAnimation(liftc, shinec, shineleftc, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
           </ul>
         </div>
 
@@ -36,9 +79,9 @@
           <div class="choice_text">
             <div id="choice_texto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
 
-        <a onclick="gotoSkeletonZone('sustainability')" class="zone_button" id="zone_button_sustainability"></a>
-        <a onclick="gotoSkeletonZone('wellness')" class="zone_button" id="zone_button_wellness"></a>
-        <a onclick="gotoSkeletonZone('financial')" class="zone_button" id="zone_button_financial"></a>
+        <a href="#0" onclick="gotoSkeletonZone('sustainability')" class="zone_button" id="zone_button_sustainability"></a>
+        <a href="#0" onclick="gotoSkeletonZone('wellness')" class="zone_button" id="zone_button_wellness"></a>
+        <a href="#0" onclick="gotoSkeletonZone('financial')" class="zone_button" id="zone_button_financial"></a>
 
           </div>
         </div>
@@ -46,7 +89,7 @@
       </div>
 
 
-    <section id="mainbuilding" class="mainbuilding">
+    <section id="mainbuilding" class="mainbuilding secto">
 
 <div class="clouds">
 <div class="clouda">
@@ -58,7 +101,6 @@
         <img src="assets/building_xray_extra_new.png" class="xraybuilding" id="xraybuilding">
 
         <!-- <img src="assets/building_extra.png" class="maincolourbuilding" id="maincolourbuilding"> -->
-
         <figure class="maincolourbuilding" id="maincolourbuilding">
         <div class="shine">
           <img src="assets/shine.png" id="shine">
@@ -116,30 +158,28 @@
       </div>
     </section>
 
-<div class="between_message">
+<div class="between_message" id="betweenmessage">
   <div class="top_white_wave"></div>
-<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
+<h2 id="mid_exclaim">&nbsp;</h2>
 <div class="bottom_wave"></div>
 </div>
 
-    <section class="section_2" id="machines">
+    <section class="section_2 secto" id="machines">
       <div class="overcream"></div>
       <div class="element_holder" id="element_holder">
         <div class="element element_a">
 
           <div class="hovertoshowtext_senddata">
-            <div class="node_text showonmachines" onclick="gotoIpad()">
-              <img src="assets/pain_balloon.png" class="speechdummy">
-              <p>xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            <div class="node_text_machines showonmachines" onclick="gotoIpad()">
+              <img src="assets/pain_balloon_left.png" class="speechdummy">
+              <div id="machines_bubble_a">&nbsp;</div>
             </div>
           </div>
 
           <div class="canvas_a" id="canvas_a">
             <svg class="heightsvg" preserveAspectRatio="none">
               <polyline id="polyline_a" points="0,140 0,70 900,70 900,1400 100,1400"
-              style="fill:transparent;stroke:orange;stroke-width:2" />
+              style="fill:transparent;stroke:orange;stroke-width:4" />
             </svg>
           </div>
 
@@ -150,17 +190,16 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
         <div class="element element_b">
 
           <div class="hovertoshowtext_senddata">
-            <div class="node_text showonmachines" onclick="gotoIpad()">
-              <img src="assets/pain_balloon.png" class="speechdummy">
-              <p>b xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            <div class="node_text_machines showonmachines" onclick="gotoIpad()">
+              <img src="assets/pain_balloon_left.png" class="speechdummy">
+              <div id="machines_bubble_b">&nbsp;</div>
             </div>
           </div>
 
           <div class="canvas_b" id="canvas_b">
             <svg class="heightsvg" preserveAspectRatio="none">
               <polyline id="polyline_b" points="0,140 0,60 480,60 480,1390 100,1390"
-              style="fill:transparent;stroke:green;stroke-width:2" />
+              style="fill:transparent;stroke:pink;stroke-width:4" />
             </svg>
           </div>
 
@@ -171,17 +210,16 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
         <div class="element element_c">
 
           <div class="hovertoshowtext_senddata">
-            <div class="node_text showonmachines" onclick="gotoIpad()">
-              <img src="assets/pain_balloon.png" class="speechdummy">
-              <p>c xray_sustainability ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+            <div class="node_text_machines showonmachines" onclick="gotoIpad()">
+              <img src="assets/pain_balloon_left.png" class="speechdummy">
+             <div id="machines_bubble_c">&nbsp;</div>
             </div>
           </div>
 
           <div class="canvas_c" id="canvas_c">
             <svg class="heightsvg" preserveAspectRatio="none">
-              <polyline id="polyline_c" points="0,140 0,60 480,60 480,1390 100,1390"
-              style="fill:transparent;stroke:green;stroke-width:2" />
+              <polyline id="polyline_c" points="280,120 300,120 300,1390 100,1390"
+              style="fill:transparent;stroke:green;stroke-width:4" />
             </svg>
           </div>
 
@@ -189,13 +227,23 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
         </div>
       </div>
 
+<div class="goahead" id="goahead">
+<p>Go ahead - send the data</p>
+</div>
 
-      <div class="section_3" id="ipad">
+      <div class="section_3 secto" id="ipad">
+        <div id="triggerlines"></div>
         <div class="ipad_holder" id="ipad_holder">
+
+<div class="overipadtext" id="overipad_text">
+<p>OPN Buildings</p>
+</div>
+
           <div class="ipad">
             <img src="assets/ipad.png">
 
 <div class="leaf_holder">
+  <div id="dummypadder"></div>
 <div class="leaf_a">
   <img src="assets/leaf_a.png">
 </div>
@@ -242,7 +290,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
     </section>
 
-    <section class="section_4" id="simplemap">
+    <section class="section_4 secto" id="simplemap">
 
       <div class="map_holder" id="map_holder" style="background-image: url('assets/simple_map_small.png')">
       </div>
@@ -260,7 +308,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
     </section>
 
 
-    <section class="section_5" id="usp_section">
+    <section class="section_5 secto" id="usp_section">
 
       <div class="container">
         <div class="usp_holder">
@@ -290,7 +338,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
     </section>
 
 
-    <section class="section_6" id="testimonial_section">
+    <section class="section_6 secto" id="testimonial_section">
 
       <div class="container">
         <div class="testimonials_holder">
@@ -318,7 +366,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
 
 
-  <section class="section_7" id="staff_section">
+  <section class="section_7 secto" id="staff_section">
 
       <div class="container">
         <div class="staff_holder">
@@ -388,7 +436,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
 
 
-  <section class="section_8" id="grid_section">
+  <section class="section_8 secto" id="grid_section">
 
       <div class="container">
         <div class="grid_zone">
@@ -470,7 +518,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
   <div class="side_menu">
 <figure>
-  <img src="assets/colour_logo.png">
+  <a href="#0" onclick="window.location.reload();"><img src="assets/colour_logo.png">
 </figure>
 
     <ul id="main_side_menu" class="disabler">
@@ -479,6 +527,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
       <li><a href="#0" onclick="gotoSection('c');"><div class="innercircle" id="innercircle_c"></div></a></li>
       <li><a href="#0" onclick="gotoSection('d');"><div class="innercircle" id="innercircle_d"></div></a></li>
     </ul>
+      <div id="dummypadder"></div>
   </div>
 
 
@@ -514,9 +563,10 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
 
 
 
-  <script src="inc/js/content.js"></script>
-    <script src="inc/js/main.js"></script>
 
+
+  <script src="inc/js/content.js"></script>
+  <script src="inc/js/main.js"></script>
 
   <script type="text/javascript">
 

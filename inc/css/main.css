@@ -1,4 +1,35 @@
 @import url(https://fonts.bunny.net/css?family=roboto:100,300,400,700);
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+  .pin-spacer {
+    max-width: 100vw;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1023px) {
+  .pin-spacer {
+    max-width: 100vw;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-spacer {
+    max-width: 100vw;
+  }
+}
+@media screen and (min-width: 441px) and (max-width: 767px) {
+  .pin-spacer {
+    max-width: 100vw;
+  }
+}
+@media screen and (min-width: 351px) and (max-width: 440px) {
+  .pin-spacer {
+    max-width: 100vw;
+  }
+}
+@media screen and (max-width: 350px) {
+  .pin-spacer {
+    max-width: 100vw;
+  }
+}
+
 * {
   margin: 0;
 }
@@ -82,7 +113,7 @@ figure {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 99999;
+  z-index: 9999999999;
   transition: all 1s ease;
 }
 
@@ -94,7 +125,8 @@ figure {
 
 #contento {
   background: #fcfcfa;
-  padding-left: 5%;
+  width: 100vw;
+  max-width: 100vw;
 }
 
 .max_contain {
@@ -129,13 +161,33 @@ figure {
   padding: 2rem;
   position: absolute;
   bottom: 0;
-  right: 5%;
+  transform: scale(1);
+  filter: saturate(1);
+  transition: all 0.1s ease;
   z-index: 999;
+}
+@media screen and (min-width: 1366px) {
+  .james_zone .james_circle .james_head {
+    right: 5%;
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 1365px) {
+  .james_zone .james_circle .james_head {
+    right: 10%;
+    bottom: 0;
+  }
 }
 .james_zone .james_circle .james_head .head_sizer {
   opacity: 0;
   max-width: 14rem;
   position: relative;
+}
+.james_zone .james_circle .james_head:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  filter: saturate(0);
+  transition: all 0.1s ease;
 }
 .james_zone .james_circle .james_speech {
   background-size: contain;
@@ -154,8 +206,15 @@ figure {
   top: 25%;
   left: 15%;
   font-size: calc(1.1rem + 0.1vw);
-  font-family: "Roboto", sans-serif;
   text-align: center;
+  color: #052f3f;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.james_zone .james_circle .james_speech p span.click_me {
+  display: block;
+  margin-top: 1rem;
+  font-size: calc(0.7rem + 0.1vw);
 }
 .james_zone .james_circle .james_speech .speech_sizer {
   opacity: 0;
@@ -165,18 +224,25 @@ figure {
 .james_zone .james_side {
   height: 100%;
   position: absolute;
-  right: -100%;
+  right: -150%;
   visibility: none;
   pointer-events: none;
   transition: all 0.2s ease;
   background: #fff;
   padding: 2rem;
   max-width: 40rem;
+  display: flex;
+  align-items: center;
 }
 .james_zone .james_side p {
   font-size: calc(1.1rem + 0.1vw);
-  font-family: "Roboto", sans-serif;
   text-align: center;
+  color: #052f3f;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.james_zone .james_side p strong {
+  font-weight: 800;
 }
 .james_zone .james_side.shown {
   height: 100%;
@@ -297,10 +363,14 @@ figure {
 
 section.mainbuilding {
   padding-top: 5rem;
+  margin: 0;
+  left: 0 !important;
+  position: relative;
 }
 section.mainbuilding .halfbuilding {
   width: 50rem;
   position: relative;
+  left: 0 !important;
 }
 section.mainbuilding .halfbuilding figure.maincolourbuilding {
   width: 100%;
@@ -473,6 +543,7 @@ section.mainbuilding .halfbuilding img.xraybuilding {
   justify-content: flex-end;
   align-items: center;
   position: relative;
+  text-decoration: none;
 }
 .rightsidebuttons ul li a:hover {
   cursor: pointer;
@@ -602,11 +673,25 @@ div.between_message .bottom_wave {
 /*** ********** *****/
 /********************/
 section#machines {
+  left: 0 !important;
   position: relative;
   padding-top: 15rem;
   height: 150vh;
   min-height: 90rem;
   background: #052f3f;
+}
+section#machines .goahead {
+  border: 1px solid #fff;
+  padding: 1rem;
+  opacity: 0;
+}
+section#machines .goahead p {
+  font-size: calc(2rem + 0.1vw);
+  color: #fff;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  max-width: 70%;
+  text-align: center;
 }
 section#machines .overcream {
   position: absolute;
@@ -626,22 +711,24 @@ section#machines .element_holder {
 }
 section#machines .element_holder .element {
   margin: 3rem;
+  position: relative;
 }
 section#machines .element_holder .element .hovertoshowtext_senddata {
   position: absolute;
-  top: -100%;
-  left: 10rem;
+  top: -13rem;
+  width: 15rem;
+  height: 15rem;
+  left: -2rem;
   z-index: 9;
 }
-section#machines .element_holder .element .hovertoshowtext_senddata div.node_text {
-  background-image: url("../../assets/pain_balloon.png");
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines {
+  background-image: url("../../assets/pain_balloon_left.png");
   background-size: contain;
   background-position: left;
   background-repeat: no-repeat;
   position: absolute;
-  opacity: 0;
 }
-section#machines .element_holder .element .hovertoshowtext_senddata div.node_text p {
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines div {
   position: absolute;
   top: 0%;
   left: 5%;
@@ -649,14 +736,32 @@ section#machines .element_holder .element .hovertoshowtext_senddata div.node_tex
   padding: 2rem;
   font-size: calc(0.8rem + 0.1vw);
 }
-section#machines .element_holder .element .hovertoshowtext_senddata div.node_text button {
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines div p {
+  font-size: calc(0.7rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+}
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines div p.send_data {
+  background: #052f3f;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+}
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines div p.send_data:hover {
+  cursor: pointer;
+}
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines button {
   position: absolute;
   bottom: 3rem;
   background: #052f3f;
   border: none;
   padding: 0.5rem 1rem;
 }
-section#machines .element_holder .element .hovertoshowtext_senddata div.node_text .speechdummy {
+section#machines .element_holder .element .hovertoshowtext_senddata div.node_text_machines .speechdummy {
   opacity: 0;
   position: relative;
   max-width: 16rem;
@@ -670,22 +775,47 @@ section#machines div#ipad {
   background: #052f3f;
   padding-top: 30rem;
 }
+section#machines div#ipad #triggerlines {
+  position: absolute;
+  opacity: 0;
+  height: 10px;
+  width: 10px;
+  bottom: -200rem;
+}
 section#machines div#ipad .ipad_holder {
   padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 section#machines div#ipad .ipad_holder .ipad {
   margin: 3rem;
-  transform: translateY(10%);
 }
 section#machines div#ipad .ipad_holder .ipad img {
   width: 100%;
   max-width: 30rem;
 }
+section#machines div#ipad .ipad_holder .overipadtext {
+  padding: 1rem;
+  opacity: 0;
+  position: absolute;
+  top: -3rem;
+  max-width: 50rem;
+}
+section#machines div#ipad .ipad_holder .overipadtext p {
+  font-size: calc(2rem + 0.1vw);
+  color: #052f3f;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
 section#machines div#ipad .leaf_holder {
-  position: relative;
+  position: absolute;
+  left: -40%;
+  bottom: 37%;
+  width: 50%;
+  height: 50%;
 }
 section#machines div#ipad .leaf_holder .leaf_a {
   opacity: 0;
@@ -695,8 +825,11 @@ section#machines div#ipad .leaf_holder .leaf_a {
   background-image: url("../../assets/leaf_a.png");
   position: absolute;
   bottom: 30%;
-  left: -70%;
+  left: 0%;
   max-width: 50%;
+}
+section#machines div#ipad .leaf_holder .leaf_a img {
+  opacity: 0;
 }
 section#machines div#ipad .leaf_holder .leaf_b {
   opacity: 0;
@@ -706,14 +839,27 @@ section#machines div#ipad .leaf_holder .leaf_b {
   background-image: url("../../assets/leaf_b.png");
   position: absolute;
   bottom: 30%;
-  left: -70%;
+  left: 0%;
   max-width: 50%;
+}
+section#machines div#ipad .leaf_holder .leaf_b img {
+  opacity: 0;
 }
 section#machines div#ipad .tablet_man_left {
   position: absolute;
-  bottom: 20%;
   left: 1rem;
-  width: 27%;
+}
+@media screen and (min-width: 1024px) {
+  section#machines div#ipad .tablet_man_left {
+    bottom: 0%;
+    width: 15%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  section#machines div#ipad .tablet_man_left {
+    bottom: 20%;
+    width: 27%;
+  }
 }
 section#machines div#ipad .tablet_man_left .talking_speech_left,
 section#machines div#ipad .tablet_man_left .talking_speech_left_b {
@@ -737,8 +883,9 @@ section#machines div#ipad .tablet_man_left .talking_speech_left p,
 section#machines div#ipad .tablet_man_left .talking_speech_left_b p {
   position: absolute;
   top: 30%;
-  max-width: 70%;
-  margin-left: 15%;
+  left: 25%;
+  max-width: 63%;
+  margin-left: 5%;
   font-size: calc(1rem + 0.1vw);
   color: #052f3f;
   font-weight: 600;
@@ -751,9 +898,19 @@ section#machines div#ipad .tablet_man_left .talking_head_left {
 }
 section#machines div#ipad .tablet_man_right {
   position: absolute;
-  bottom: 20%;
-  right: 1rem;
-  width: 27%;
+  right: 5%;
+}
+@media screen and (min-width: 1024px) {
+  section#machines div#ipad .tablet_man_right {
+    bottom: 0%;
+    width: 15%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  section#machines div#ipad .tablet_man_right {
+    bottom: 20%;
+    width: 27%;
+  }
 }
 section#machines div#ipad .tablet_man_right .talking_speech_right,
 section#machines div#ipad .tablet_man_right .talking_speech_right_b {
@@ -777,7 +934,8 @@ section#machines div#ipad .tablet_man_right .talking_speech_right p,
 section#machines div#ipad .tablet_man_right .talking_speech_right_b p {
   position: absolute;
   top: 30%;
-  max-width: 70%;
+  left: 0;
+  max-width: 63%;
   margin-left: 15%;
   font-size: calc(1rem + 0.1vw);
   color: #052f3f;
@@ -806,7 +964,16 @@ section#machines .canvas_a svg, section#machines .canvas_a img {
 section#machines .canvas_a svg #polyline_a, section#machines .canvas_a img #polyline_a {
   stroke-dasharray: 3600;
   stroke-dashoffset: 3600;
-  transition: stroke-dashoffset 0.3s linear;
+}
+@media screen and (min-width: 1366px) {
+  section#machines .canvas_a svg #polyline_a, section#machines .canvas_a img #polyline_a {
+    transition: stroke-dashoffset 0.25s linear;
+  }
+}
+@media screen and (max-width: 1365px) {
+  section#machines .canvas_a svg #polyline_a, section#machines .canvas_a img #polyline_a {
+    transition: stroke-dashoffset 1.35s linear;
+  }
 }
 section#machines .canvas_b {
   position: absolute;
@@ -825,7 +992,16 @@ section#machines .canvas_b svg, section#machines .canvas_b img {
 section#machines .canvas_b svg #polyline_b, section#machines .canvas_b img #polyline_b {
   stroke-dasharray: 2800;
   stroke-dashoffset: 2800;
-  transition: stroke-dashoffset 0.3s linear;
+}
+@media screen and (min-width: 1366px) {
+  section#machines .canvas_b svg #polyline_b, section#machines .canvas_b img #polyline_b {
+    transition: stroke-dashoffset 0.35s linear;
+  }
+}
+@media screen and (max-width: 1365px) {
+  section#machines .canvas_b svg #polyline_b, section#machines .canvas_b img #polyline_b {
+    transition: stroke-dashoffset 1s linear;
+  }
 }
 section#machines .canvas_c {
   position: absolute;
@@ -838,13 +1014,22 @@ section#machines .canvas_c svg, section#machines .canvas_c img {
   max-width: unset !important;
   width: 35vw !important;
   height: 150vh !important;
-  margin-left: 8vw;
+  margin-left: -6rem;
   margin-top: -5rem;
 }
 section#machines .canvas_c svg #polyline_c, section#machines .canvas_c img #polyline_c {
   stroke-dasharray: 2800;
   stroke-dashoffset: 2800;
-  transition: stroke-dashoffset 0.3s linear;
+}
+@media screen and (min-width: 1366px) {
+  section#machines .canvas_c svg #polyline_c, section#machines .canvas_c img #polyline_c {
+    transition: stroke-dashoffset 0.5s linear;
+  }
+}
+@media screen and (max-width: 1365px) {
+  section#machines .canvas_c svg #polyline_c, section#machines .canvas_c img #polyline_c {
+    transition: stroke-dashoffset 1.5s linear;
+  }
 }
 
 /********************/
@@ -975,6 +1160,7 @@ section.section_7 {
   height: 100vh;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 section.section_7 .container {
   max-width: 70vw;
@@ -986,6 +1172,11 @@ section.section_7 .container {
 section.section_7 .container .staff_holder {
   display: flex;
   width: 100%;
+}
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) and (orientation: portrait) {
+  section.section_7 .container .staff_holder {
+    flex-direction: column;
+  }
 }
 section.section_7 .container .staff_holder .staff_person {
   opacity: 0;
@@ -1105,6 +1296,11 @@ footer.opn_footer .footer_items a {
   z-index: 999;
   height: 100%;
 }
+.side_menu #dummypadder {
+  opacity: 0;
+  height: 10px;
+  width: 10px;
+}
 .side_menu #titletest {
   position: fixed;
   bottom: 3rem;
@@ -1163,4 +1359,22 @@ footer.opn_footer .footer_items a {
 }
 .side_menu ul.disabler li {
   opacity: 0.5;
+}
+
+.portraitlocker {
+  display: none;
+}
+@media screen and (orientation: landscape) {
+  .portraitlocker {
+    background: #33bec3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+body.device--mid {
+  border: 2px solid #33bec3;
 }
