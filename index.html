@@ -3,41 +3,76 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>OPN Scrollzone</title>
-<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<script>
-  var viewporter = document.getElementById("viewport");
-  var deviceclass = 'devico';
-  var sections = document.querySelectorAll('.secto');
-
-
+  <title>OPN Buildings</title>
+  <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- <meta name="viewport" id="viewport" content="width=device-width, initial-scale=0.45, user-scalable=no"> -->
+<!-- <script>
+console.log(window.devicePixelRatio + ' ' + window.innerWidth);
+var viewporter = document.getElementById("viewport");
+var deviceclass = 'devico';
+var sections = document.querySelectorAll('.secto');
+var pixelratio = window.devicePixelRatio;
 if (window.innerWidth > 1366) {
-   // alert(window.innerWidth);
-   deviceclass = 'device--normal';
-   viewporter.setAttribute("content", "initial-scale=0.85, maximum-scale=1.0, user-scalable=0");
-   document.addEventListener("DOMContentLoaded", function(event) {
+
+deviceclass = 'device--normal';
+viewporter.setAttribute("content", "initial-scale=1, maximum-scale=1.0, user-scalable=0");
+
+if((pixelratio>1) && (pixelratio<2)){
+viewporter.setAttribute("content", "initial-scale=.9, maximum-scale=1.0, user-scalable=0");
+} else if(pixelratio==2){
+viewporter.setAttribute("content", "initial-scale=.6, maximum-scale=1.0, user-scalable=0");
+}else{
+viewporter.setAttribute("content", "initial-scale=1, maximum-scale=1.0, user-scalable=0");
+}
+
+
+document.addEventListener("DOMContentLoaded", function(event) {
 document.body.classList.add(deviceclass);
 });
-} else if ((window.innerWidth > 991) && (window.innerWidth < 1366)) {
+} else if ((window.innerWidth > 1024) && (window.innerWidth < 1366)) {
+deviceclass = 'device--mid';
+if((pixelratio>1) && (pixelratio<2)){
+viewporter.setAttribute("content","initial-scale=0.6, maximum-scale=1.0, user-scalable=0");
+} else if(pixelratio==2){
+viewporter.setAttribute("content","initial-scale=0.5, maximum-scale=1.0, user-scalable=0");
+}else{
+viewporter.setAttribute("content","initial-scale=0.9, maximum-scale=1.0, user-scalable=0");
+}
+document.addEventListener("DOMContentLoaded", function(event) {
+document.body.classList.add(deviceclass);
+});
+} else if ((window.innerWidth > 991) && (window.innerWidth < 1024)) {
 
-   deviceclass = 'device--mid';
-   viewporter.setAttribute("content", "initial-scale=0.8, maximum-scale=1.0, user-scalable=0");
-   document.addEventListener("DOMContentLoaded", function(event) {
+deviceclass = 'device--mid--smaller';
+if((pixelratio>1) && (pixelratio<2)){
+viewporter.setAttribute("content","initial-scale=0.65, maximum-scale=1.0, user-scalable=0");
+} else if(pixelratio==2){
+viewporter.setAttribute("content","initial-scale=0.5, maximum-scale=1.0, user-scalable=0");
+}else{
+viewporter.setAttribute("content","initial-scale=0.8, maximum-scale=1.0, user-scalable=0");
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
 document.body.classList.add(deviceclass);
 });
 } else if (window.innerWidth < 991) {
 
-  deviceclass = 'device--smallmob';
-   viewporter.setAttribute("content",
-      "initial-scale=0.45, maximum-scale=1.0, user-scalable=0");
-   document.addEventListener("DOMContentLoaded", function(event) {
+deviceclass = 'device--smallmob';
+if((pixelratio>1) && (pixelratio<2)){
+viewporter.setAttribute("content","initial-scale=0.45, maximum-scale=1.0, user-scalable=0");
+} else if(pixelratio==2){
+viewporter.setAttribute("content","initial-scale=0.4, maximum-scale=1.0, user-scalable=0");
+}else{
+viewporter.setAttribute("content","initial-scale=0.45, maximum-scale=1.0, user-scalable=0");
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
 document.body.classList.add(deviceclass);
 });
 } else {
-
-   deviceclass = 'device--normal noregdevice';
-   viewporter.setAttribute("content", "initial-scale=0.65, maximum-scale=1.0, user-scalable=0");
-   document.addEventListener("DOMContentLoaded", function(event) {
+deviceclass = 'device--normal noregdevice';
+viewporter.setAttribute("content", "initial-scale=0.65, maximum-scale=1.0, user-scalable=0");
+document.addEventListener("DOMContentLoaded", function(event) {
 document.body.classList.add(deviceclass);
 });
 }
@@ -45,81 +80,109 @@ document.body.classList.add(deviceclass);
 
 
 
-</script>
-<!-- <meta name="viewport" content="width=1003, initial-scale=1, maximum-scale=1"> -->
-  <link rel="stylesheet" href="inc/css/main.css">
 
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script> 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
-  <script src="inc/js/responsive_heights.js"></script>
+</script> -->
+<!-- <meta name="viewport" content="width=1003, initial-scale=1, maximum-scale=1"> -->
+<link rel="stylesheet" href="inc/css/main.css">
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
+<script src="inc/js/responsive_heights.js"></script>
+
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
 <body>
+  <div class="moblocker">
+    <img src="assets/colour_logo.png">
+    <br>
+    <h1>Please view on (+1365px) viewport </h1></div>
+  </div>
   <div class="fadeover" id="fadeover"></div>
   <div class="portraitlocker"></div>
+
+
+
+
+
+
   <div id="contento">
     <!-- <button style="position: fixed; z-index: 999;top: 0; right: 25%; background: #33bec3; color: #fff;padding: 0.5rem;" onclick="gotoStart()">Back to start</button> -->
 
-      <div class="rightsidestuff">
-        <div class="rightsidebuttons" id="rightsidebuttons">
-          <h3>What floor?</h3>
-          <ul>
-            <li><a class="mainchecko" href="#0"  onclick="gotoSkeletonAnimation(lifta, shinea, shinelefta,'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
-            <li><a class="mainchecko" href="#0"  onclick="gotoSkeletonAnimation(liftb, shineb, shineleftb, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
-            <li><a class="mainchecko" href="#0"  onclick="gotoSkeletonAnimation(liftc, shinec, shineleftc, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
-          </ul>
-        </div>
-
-
-        <div class="choice_stuff showstuff-sustainability" id="main_intro_text_holder">
-          <div class="choice_text">
-            <div id="choice_texto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
-
-        <a href="#0" onclick="gotoSkeletonZone('sustainability')" class="zone_button" id="zone_button_sustainability"></a>
-        <a href="#0" onclick="gotoSkeletonZone('wellness')" class="zone_button" id="zone_button_wellness"></a>
-        <a href="#0" onclick="gotoSkeletonZone('financial')" class="zone_button" id="zone_button_financial"></a>
-
-          </div>
-        </div>
-
+    <div class="rightsidestuff" id="rightsidestuff">
+      <div class="rightsidebuttons" id="rightsidebuttons">
+        <h3>What floor?</h3>
+        <ul>
+          <li><a class="mainchecko" href="#0"  onclick="pickRoute(lifta, shinea, shinelefta,'sustainability',this)"><div class="checkbox"></div><span>Sustainability</span></a></li>
+          <li><a class="mainchecko" href="#0"  onclick="pickRoute(liftb, shineb, shineleftb, 'wellness',this)"><div class="checkbox"></div><span>Wellness</span></a></li>
+          <li><a class="mainchecko" href="#0"  onclick="pickRoute(liftc, shinec, shineleftc, 'financial',this)"><div class="checkbox"></div><span>Financial</span></a></li>
+        </ul>
       </div>
+
+
+      <div class="choice_stuff showstuff-sustainability" id="main_intro_text_holder">
+        <div class="choice_text">
+          <div id="choice_texto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
+
+          <a href="#0" onclick="gotoSkeletonZone('sustainability')" class="zone_button" id="zone_button_sustainability"></a>
+          <a href="#0" onclick="gotoSkeletonZone('wellness')" class="zone_button" id="zone_button_wellness"></a>
+          <a href="#0" onclick="gotoSkeletonZone('financial')" class="zone_button" id="zone_button_financial"></a>
+
+        </div>
+      </div>
+
+    </div>
 
 
     <section id="mainbuilding" class="mainbuilding secto">
 
-<div class="clouds">
-<div class="clouda">
-
-</div>
-</div>
+      <div class="clouds">
+        <div class="clouda"></div>
+        <div class="cloudb"></div>
+      </div>
 
       <div class="halfbuilding" id="halfbuilding">
         <img src="assets/building_xray_extra_new.png" class="xraybuilding" id="xraybuilding">
-
-        <!-- <img src="assets/building_extra.png" class="maincolourbuilding" id="maincolourbuilding"> -->
         <figure class="maincolourbuilding" id="maincolourbuilding">
-        <div class="shine">
-          <img src="assets/shine.png" id="shine">
-          <img src="assets/beams.png" id="beams">
-        </div>
-            <img src="assets/building_cutout.png" class="building_layer_top">
-          
-        <div class="solarpanels">
-          <img src="assets/solarpanels.png" id="solarpanels">
-        </div>
-        <div class="lift">
-          <img src="assets/lift.png" id="lift">
-        </div>
-            <img src="assets/building_backwindow.png" class="building_layer_middle">
+          <div class="holds_people">
+            <img src="assets/building_xray_extra_new.png" class="hidepeopledummy">
+            <div class="window_people" id="building_person_1" style="background-image: url('assets/window_pics/wellness_1.png')">
+              <img src="assets/window_pics/wellness_1.png">
+            </div>
+            <div class="window_people" id="building_person_2" style="background-image: url('assets/window_pics/sustainability_2.png')">
+              <img src="assets/window_pics/wellness_2.png">
+            </div>
+            <div class="window_people" id="building_person_3" style="background-image: url('assets/window_pics/financial_3.png')">
+              <img src="assets/window_pics/wellness_3.png">
+            </div>
+            <div class="window_people" id="building_person_4" style="background-image: url('assets/window_pics/wellness_4.png')">
+              <img src="assets/window_pics/wellness_4.png">
+            </div>
+
+          </div>
+
+
+          <div class="shine">
+            <img src="assets/shine.png" id="shine">
+            <img src="assets/beams.png" id="beams">
+          </div>
+          <img src="assets/building_cutout_small.png" class="building_layer_top">
+
+          <div class="solarpanels">
+            <img src="assets/solarpanels.png" id="solarpanels">
+          </div>
+          <div class="lift">
+            <img src="assets/lift.png" id="lift">
+          </div>
+          <img src="assets/building_backwindow.png" class="building_layer_middle">
         </figure>
 
 
 
-<!-- ///////////////////// break /////////////////////////////////-->
+        <!-- ///////////////////// break /////////////////////////////////-->
         <div class="xray_content" id="xray_conto">
           <ul>
             <li>
@@ -127,6 +190,7 @@ document.body.classList.add(deviceclass);
 
               </div>
               <div class="node_text node_high">
+                <a id="nextstepnode" onclick="gotoMachines()" class="gotonext_button_xray" href="#0"></a>
                 <img src="assets/pain_balloon.png" class="speechdummy">
                 <div id="xray_node_a" onclick="gotoMachines()">&nbsp;</div>
               </div>
@@ -137,6 +201,7 @@ document.body.classList.add(deviceclass);
 
               </div>
               <div class="node_text node_med">
+                <a id="nextstepnode" onclick="gotoMachines()" class="gotonext_button_xray" href="#0"></a>
                 <img src="assets/pain_balloon.png" class="speechdummy">
                 <div id="xray_node_b" onclick="gotoMachines()">&nbsp;</div>
               </div>
@@ -146,32 +211,61 @@ document.body.classList.add(deviceclass);
               <div class="node" onclick="getPain(this)">
 
               </div>
-              <div class="node_text node_low">
+              <div class="node_text node_med">
+                <a id="nextstepnode" onclick="gotoMachines()" class="gotonext_button_xray" href="#0"></a>
                 <img src="assets/pain_balloon.png" class="speechdummy">
-               <div id="xray_node_c" onclick="gotoMachines()">&nbsp;</div>
+                <div id="xray_node_c" onclick="gotoMachines()">&nbsp;</div>
               </div>
             </li>
+
+            <li class="extra_nodes">
+              <div class="node" onclick="getPain(this)">
+
+              </div>
+              <div class="node_text node_low">
+                <a id="nextstepnode" onclick="gotoMachines()" class="gotonext_button_xray" href="#0"></a>
+                <img src="assets/pain_balloon.png" class="speechdummy">
+                <div id="xray_node_d" onclick="gotoMachines()">&nbsp;</div>
+              </div>
+            </li>
+
+            <li class="extra_nodes">
+              <div class="node" onclick="getPain(this)">
+
+              </div>
+              <div class="node_text node_lower">
+                <a id="nextstepnode" onclick="gotoMachines()" class="gotonext_button_xray" href="#0"></a>
+                <img src="assets/pain_balloon.png" class="speechdummy">
+                <div id="xray_node_e" onclick="gotoMachines()">&nbsp;</div>
+              </div>
+            </li>
+
+
           </ul>
         </div>
-<!-- ///////////////////// break /////////////////////////////////-->
+        <!-- ///////////////////// break /////////////////////////////////-->
 
       </div>
     </section>
 
-<div class="between_message" id="betweenmessage">
-  <div class="top_white_wave"></div>
-<h2 id="mid_exclaim">&nbsp;</h2>
-<div class="bottom_wave"></div>
-</div>
+    <div class="between_message" id="betweenmessage">
+      <div class="top_white_wave"></div>
+      <h2 id="mid_exclaim">&nbsp;</h2>
+      <a id="" onclick="gotoNextId('#machines_section_navigator', 1.75)" class="gotonext_button" href="#0"></a>
+
+      <div class="bottom_wave"></div>
+    </div>
 
     <section class="section_2 secto" id="machines">
+      <div id="machines_section_navigator"></div>
+
       <div class="overcream"></div>
       <div class="element_holder" id="element_holder">
-        <div class="element element_a">
+        <div class="element element_a" onclick="toggleSpeech('a');">
 
-          <div class="hovertoshowtext_senddata">
+          <div class="hovertoshowtext_senddata" id="speech_a">
             <div class="node_text_machines showonmachines" onclick="gotoIpad()">
-              <img src="assets/pain_balloon_left.png" class="speechdummy">
+              <img src="assets/pain_balloon_left.png" class="speechdummy speechdummy_a">
               <div id="machines_bubble_a">&nbsp;</div>
             </div>
           </div>
@@ -187,11 +281,11 @@ document.body.classList.add(deviceclass);
         </div>
 
 
-        <div class="element element_b">
+        <div class="element element_b" onclick="toggleSpeech('b');">
 
-          <div class="hovertoshowtext_senddata">
+          <div class="hovertoshowtext_senddata" id="speech_b">
             <div class="node_text_machines showonmachines" onclick="gotoIpad()">
-              <img src="assets/pain_balloon_left.png" class="speechdummy">
+              <img src="assets/pain_balloon_left.png" class="speechdummy speechdummy_b">
               <div id="machines_bubble_b">&nbsp;</div>
             </div>
           </div>
@@ -207,12 +301,12 @@ document.body.classList.add(deviceclass);
         </div>
 
 
-        <div class="element element_c">
+        <div class="element element_c" onclick="toggleSpeech('c');">
 
-          <div class="hovertoshowtext_senddata">
+          <div class="hovertoshowtext_senddata" id="speech_c">
             <div class="node_text_machines showonmachines" onclick="gotoIpad()">
-              <img src="assets/pain_balloon_left.png" class="speechdummy">
-             <div id="machines_bubble_c">&nbsp;</div>
+              <img src="assets/pain_balloon_left.png" class="speechdummy speechdummy_c">
+              <div id="machines_bubble_c">&nbsp;</div>
             </div>
           </div>
 
@@ -227,31 +321,30 @@ document.body.classList.add(deviceclass);
         </div>
       </div>
 
-<div class="goahead" id="goahead">
-<p>Go ahead - send the data</p>
-</div>
+      <div class="goahead" id="goahead">
+        <p>Go ahead - send the data</p>
+      </div>
 
       <div class="section_3 secto" id="ipad">
         <div id="triggerlines"></div>
         <div class="ipad_holder" id="ipad_holder">
 
-<div class="overipadtext" id="overipad_text">
-<p>OPN Buildings</p>
-</div>
+          <div class="overipadtext" id="overipad_text">
+            <p>OPN Buildings</p>
+          </div>
 
           <div class="ipad">
             <img src="assets/ipad.png">
 
-<div class="leaf_holder">
-  <div id="dummypadder"></div>
-<div class="leaf_a">
-  <img src="assets/leaf_a.png">
-</div>
-<div class="leaf_b">
-  <img src="assets/leaf_b.png">
-</div>
-</div>
-
+            <div class="leaf_holder">
+              <div id="dummypadder"></div>
+              <div class="leaf_a">
+                <img src="assets/leaf_a.png">
+              </div>
+              <div class="leaf_b">
+                <img src="assets/leaf_b.png">
+              </div>
+            </div>
           </div>
         </div>
 
@@ -259,176 +352,270 @@ document.body.classList.add(deviceclass);
           <img src="assets/tablet_man_left.png" class="talking_head_left">
           <div class="talking_speech_left" id="talking_speech_left">
             <img src="assets/talking_head_balloon_left.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <div class="lad_speech" id="ipad_speech_a">
+              <p>opn buildings</p>
+            </div>
           </div>
-                  <div class="talking_speech_left_b" id="talking_speech_left_b">
-                    <img src="assets/talking_head_balloon_left.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <div class="talking_speech_left_b" id="talking_speech_left_b">
+            <img src="assets/talking_head_balloon_left.png">
+            <div class="lad_speech" id="ipad_speech_c">
+              <p>opn buildings</p>
+            </div>
           </div>
         </div>
 
         <div class="tablet_man_right">
           <img src="assets/tablet_man_right.png" class="talking_head_right">
-                    <div class="talking_speech_right" id="talking_speech_right">
-                      <img src="assets/talking_head_balloon_right.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <div class="talking_speech_right" id="talking_speech_right">
+            <img src="assets/talking_head_balloon_right.png">
+            <div class="lad_speech" id="ipad_speech_b">
+              <p>opn buildings</p>
+            </div>
           </div>
 
-                              <div class="talking_speech_right_b" id="talking_speech_right_b">
-                                <img src="assets/talking_head_balloon_right.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <div class="talking_speech_right_b" id="talking_speech_right_b">
+            <img src="assets/talking_head_balloon_right.png">
+            <div class="lad_speech" id="ipad_speech_d">
+              <p>opn buildings</p>
+            </div>
           </div>
         </div>
 
 
       </div>
 
-
+      <a id="nextstepafteripad" onclick="gotoNextId('#simplemap_navigator', 2.5)" class="gotonext_button_ipad" href="#0"></a>
     </section>
 
     <section class="section_4 secto" id="simplemap">
-
+      <div class="simplemap" id="simplemap_navigator"></div>
       <div class="map_holder" id="map_holder" style="background-image: url('assets/simple_map_small.png')">
       </div>
 
 
       <div class="overtext simplemap_text" id="simplemap_text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        <p>OPN 
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
+      <a onclick="gotoNextId('#usp_section_navigator', 2.5)" class="gotonext_button_map" href="#0"></a>
 
     </section>
 
 
     <section class="section_5 secto" id="usp_section">
-
+      <div id="usp_section_navigator"></div>
       <div class="container">
         <div class="usp_holder">
-          <div class="usp_block usp_block_a" style="background-image: url('assets/usp_a.png')">
-            <div class="text_area_in_block">
+          <div class="usp_block usp_block_a" id="usp_element_1" style="background-image: url('assets/usp_a.png')">
+            <div class="text_area_in_block" id="threecta_a">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore.</p>
             </div>
           </div>
 
-          <div class="usp_block usp_block_b" style="background-image: url('assets/usp_b.png')">
-            <div class="text_area_in_block">
+          <div class="usp_block usp_block_b" id="usp_element_2" style="background-image: url('assets/usp_b.png')">
+            <div class="text_area_in_block" id="threecta_b">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
             </div>
           </div>
 
-          <div class="usp_block usp_block_c" style="background-image: url('assets/usp_c.png')">
-            <div class="text_area_in_block">
+          <div class="usp_block usp_block_c" id="usp_element_3" style="background-image: url('assets/usp_c.png')">
+            <div class="text_area_in_block" id="threecta_c">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore </p>
             </div>
           </div>
         </div>
+        <div class="get_more_info_button_holder">
+          <a href="https://google.com" class="getmoreinfo_button">Get More Info</a>
+        </div>
       </div>
 
-
+      <a onclick="gotoNextId('#testimonial_section_navigator', 1.5)" class="gotonext_button_usp" href="#0"></a>
     </section>
 
 
     <section class="section_6 secto" id="testimonial_section">
-
+      <div id="testimonial_section_navigator"></div>
+      <a onclick="gotoNextId('#staff_section_navigator', 1.25)" class="gotonext_button_testimonial" href="#0"></a>
       <div class="container">
         <div class="testimonials_holder">
 
-          <div class="person testimonial_person" style="background-image: url('assets/lady_testimonial.png')">
-          
+          <div class="person testimonial_person" id="testimonialimage" style="background-image: url('assets/dummy_testimonial.png')">
+
           </div>
           <div id="testimonial_bubble" class="testimonial_speech" style="background-image: url('assets/testimonial_speech.png')">
-          <div class="innerspeech">
-<p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-          <p><strong>Test Author</strong></p>
-          </div>
+            <div class="innerspeech">
+              <div id="main_testimonial">
+                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              </div>
+              <div id="testimonial_author"><strong>Test Author</strong></div>
+            </div>
           </div>
 
         </div>
       </div>
-
-
     </section>
 
 
 
-  <section class="section_7 secto" id="staff_section">
-
+    <section class="section_7 secto" id="staff_section">
+      <div id="staff_section_navigator"></div>
+      <div id="staff_section_menu_navigator"></div>
       <div class="container">
+
+        <div class="staff_text_holder">
+          <h3>Meet the team<br>Please feel free to reach out to us in person.</h3>
+          <a id="" onclick="gotoNextId('#grid_section', 1.25)" class="gotonext_button_staff" href="#0"></a>
+        </div>
+
+        <div class="staff_holder">
+          <div class="staff_person staff_person_1" id="staff_person_1" onmouseover="staffHover(1);">
+            <div class="staff_hover hoverzone_a"  style="background-image: url('assets/staff/filip.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Filip</h4>
+                  <p>Operator Extraordinare</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="staff_holder">
+          <div class="staff_person staff_person_2" id="staff_person_2" onmouseover="staffHover(2);">
+            <div class="staff_hover hoverzone_b" style="background-image: url('assets/staff/frank.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Frank Caul</h4>
+                  <p>Company Founder</p>
+                  <p>“Industry dinosaur who should be enjoying his retirement but most likely never will.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="staff_person staff_person_3" id="staff_person_3" onmouseover="staffHover(3);">
+            <div class="staff_hover hoverzone_c" style="background-image: url('assets/staff/keith.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Keith Lyons</h4>
+                  <p>Non-Executive Director</p>
+                  <p>“Software Developer extraordinaire.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="staff_person staff_person_4" id="staff_person_4" onmouseover="staffHover(4);">
+            <div class="staff_hover hoverzone_a" style="background-image: url('assets/staff/myra.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Myra Kokke</h4>
+                  <p>Marketing Manager </p>
+                  <p class="smaller">“Has more coffee than blood running through her veins.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="staff_person staff_person_5" id="staff_person_5" onmouseover="staffHover(5);">
+            <div class="staff_hover hoverzone_b" style="background-image: url('assets/staff/james.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>James Byrne</h4>
+                  <p>Company Founder</p>
+                  <p class="smaller">james.byrne@opnbuildings.com</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="staff_holder">
 
-          <div class="staff_person staff_person_a" style="background-image: url('assets/staff_green.png')">
-            <img src="assets/staff_green.png" class="dummio">
-            <div class="staff_details">
-            <img src="assets/big_staff_left_bubble.png" class="dummio">
-            <div class="innertext">
-            <h4>Jim Smith</h4>
-            <p>Operator Extraordinare</p>
-            </div>
-            </div>
-          </div>
-
-                    <div class="staff_person staff_person_b" style="background-image: url('assets/staff_green.png')">
-            <img src="assets/staff_green.png" class="dummio">
-            <div class="staff_details">
-            <img src="assets/big_staff_left_bubble.png" class="dummio">
-            <div class="innertext">
-            <h4>Jim Smith</h4>
-            <p>Operator Extraordinare</p>
-            </div>
+          <div class="staff_person staff_person_6" id="staff_person_6" onmouseover="staffHover(6);">
+            <div class="staff_hover hoverzone_c" style="background-image: url('assets/staff/tony.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Tony O’Keeffe</h4>
+                  <p>Chief Operational Officer</p>
+                  <p>tony.okeeffe@opnbuildings.com</p>
+                </div>
+              </div>
             </div>
           </div>
 
-                    <div class="staff_person staff_person_c" style="background-image: url('assets/staff_green.png')">
-            <img src="assets/staff_green.png" class="dummio">
-            <div class="staff_details">
-            <img src="assets/big_staff_left_bubble.png" class="dummio">
-            <div class="innertext">
-            <h4>Jim Smith</h4>
-            <p>Operator Extraordinare</p>
-            </div>
-            </div>
-          </div>
-
-                    <div class="staff_person staff_person_d" style="background-image: url('assets/staff_green.png')">
-            <img src="assets/staff_green.png" class="dummio">
-            <div class="staff_details">
-            <img src="assets/big_staff_left_bubble.png" class="dummio">
-            <div class="innertext">
-            <h4>Jim Smith</h4>
-            <p>Operator Extraordinare</p>
-            </div>
+          <div class="staff_person staff_person_7" id="staff_person_7" onmouseover="staffHover(7);">
+            <div class="staff_hover hoverzone_a" style="background-image: url('assets/staff/nicholas.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Nicholas Sotiriou</h4>
+                  <p>Lead Backend Developer</p>
+                  <p>“Wannabe chess prodigy. Thirty years too late.”</p>
+                </div>
+              </div>
             </div>
           </div>
 
-                    <div class="staff_person staff_person_e" style="background-image: url('assets/staff_green.png')">
-            <img src="assets/staff_green.png" class="dummio">
-            <div class="staff_details">
-            <img src="assets/big_staff_left_bubble.png" class="dummio">
-            <div class="innertext">
-            <h4>Jim Smith</h4>
-            <p>Operator Extraordinare</p>
+          <div class="staff_person staff_person_8" id="staff_person_8" onmouseover="staffHover(8);">
+            <div class="staff_hover hoverzone_a" style="background-image: url('assets/staff/per.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Per Johansson</h4>
+                  <p>Software Development Manager</p>
+                  <p>“Smashing bugs and tennis balls with equal precision.”</p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="staff_person staff_person_9" id="staff_person_9" onmouseover="staffHover(9);">
+            <div class="staff_hover hoverzone_a" style="background-image: url('assets/staff/steve.png')">
+              <img src="assets/staff_green.png" class="dummio">
+              <div class="staff_details">
+                <img src="assets/big_staff_left_bubble.png" class="dummio bubbledummy">
+                <div class="innertext">
+                  <h4>Steve Loughney</h4>
+                  <p>Non-Executive Director</p>
+                  <p>“Senior business leader, value-finder and solution-identifier.”</p>
+                </div>
+              </div>
             </div>
           </div>
 
 
 
         </div>
+
       </div>
 
 
@@ -436,60 +623,60 @@ document.body.classList.add(deviceclass);
 
 
 
-  <section class="section_8 secto" id="grid_section">
+    <section class="section_8 secto" id="grid_section">
 
       <div class="container">
         <div class="grid_zone">
 
           <div class="grid_box">
             <div class="innerbox">
-               <img src="../../assets/six_grid_back.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+              <img src="assets/six_grid_back.png">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et</p>
           </div>
 
-                    <div class="grid_box">
+          <div class="grid_box">
             <div class="innerbox">
-               <img src="../../assets/six_grid_back.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+              <img src="assets/six_grid_back.png">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et</p>
           </div>
 
-                    <div class="grid_box">
+          <div class="grid_box">
             <div class="innerbox">
-               <img src="../../assets/six_grid_back.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+              <img src="assets/six_grid_back.png">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et</p>
           </div>
 
-                    <div class="grid_box">
+          <div class="grid_box">
             <div class="innerbox">
-              <img src="../../assets/six_grid_back.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+              <img src="assets/six_grid_back.png">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et</p>
           </div>
 
-                    <div class="grid_box">
+          <div class="grid_box">
             <div class="innerbox">
-               <img src="../../assets/six_grid_back.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+              <img src="assets/six_grid_back.png">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et</p>
           </div>
 
-                    <div class="grid_box">
+          <div class="grid_box">
             <div class="innerbox">
-               <img src="../../assets/six_grid_back.png">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+              <img src="assets/six_grid_back.png">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et</p>
@@ -502,8 +689,8 @@ document.body.classList.add(deviceclass);
     </section>
     <footer class="opn_footer">
       <div class="footer_items">
-      <a href="linkedin">Linkedin</a>
-          <a href="linkedin">Youtube</a>
+        <a href="linkedin">Linkedin</a>
+        <a href="linkedin">Youtube</a>
       </div>
     </footer>
 
@@ -517,17 +704,27 @@ document.body.classList.add(deviceclass);
 
 
   <div class="side_menu">
-<figure>
-  <a href="#0" onclick="window.location.reload();"><img src="assets/colour_logo.png">
-</figure>
+    <figure>
+      <a href="#0" onclick="window.location.reload();"><img src="assets/colour_logo.png"></a>
+    </figure>
 
     <ul id="main_side_menu" class="disabler">
       <li><a href="#0" onclick="gotoSection('a');"><div class="innercircle" id="innercircle_a"></div></a></li>
       <li><a href="#0" onclick="gotoSection('b');"><div class="innercircle" id="innercircle_b"></div></a></li>
       <li><a href="#0" onclick="gotoSection('c');"><div class="innercircle" id="innercircle_c"></div></a></li>
       <li><a href="#0" onclick="gotoSection('d');"><div class="innercircle" id="innercircle_d"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('e');"><div class="innercircle" id="innercircle_e"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('f');"><div class="innercircle" id="innercircle_f"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('g');"><div class="innercircle" id="innercircle_g"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('h');"><div class="innercircle" id="innercircle_h"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('i');"><div class="innercircle" id="innercircle_i"></div></a></li>
+      <li><a href="#0" onclick="gotoSection('j');"><div class="innercircle" id="innercircle_j"></div></a></li>
+
     </ul>
-      <div id="dummypadder"></div>
+    <a id="jamesloser" onclick="togglejamesmain();" class="jamesloser"> <img src="assets/james.png" class="head_sizer"></a>
+
+
+    <div id="dummypadder"></div>
   </div>
 
 
